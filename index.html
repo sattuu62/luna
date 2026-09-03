@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +10,11 @@
 <style>
 :root{
     --bg:#07070b;
-    --card:#111118;
-    --card2:#16161e;
+    --card:rgba(17,17,24,.78);
+    --card2:rgba(22,22,30,.88);
     --text:#f7f7f7;
     --muted:#a4a4af;
-    --line:rgba(255,255,255,.1);
+    --line:rgba(255,255,255,.11);
     --max:1180px;
 }
 
@@ -35,6 +36,54 @@ body{
     overflow-x:hidden;
 }
 
+/* =====================================================
+   BACKGROUND VIDEO
+===================================================== */
+
+.background-video{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+    pointer-events:none;
+    background:#07070b;
+}
+
+.video-overlay{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,7,11,.78),
+            rgba(7,7,11,.48) 45%,
+            rgba(7,7,11,.88)
+        );
+}
+
+.video-glow{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(255,255,255,.09),
+            transparent 38%
+        );
+}
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
 a{
     text-decoration:none;
     color:inherit;
@@ -46,7 +95,13 @@ a{
     margin:auto;
 }
 
-/* NAVBAR */
+section{
+    padding:110px 0;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
 
 .navbar{
     position:fixed;
@@ -59,8 +114,9 @@ a{
 }
 
 .navbar.scrolled{
-    background:rgba(7,7,11,.9);
+    background:rgba(7,7,11,.88);
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
     border-bottom:1px solid var(--line);
     padding:14px 0;
 }
@@ -108,15 +164,18 @@ a{
 .menu{
     display:none;
     border:1px solid var(--line);
-    background:var(--card);
+    background:rgba(17,17,24,.85);
     color:white;
     border-radius:50%;
     width:44px;
     height:44px;
     cursor:pointer;
+    font-size:18px;
 }
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     min-height:100vh;
@@ -135,7 +194,14 @@ a{
     left:50%;
     top:10%;
     transform:translateX(-50%);
-    background:radial-gradient(circle,rgba(255,255,255,.08),transparent 68%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.11),
+            transparent 68%
+        );
+
     pointer-events:none;
 }
 
@@ -151,8 +217,13 @@ a{
     align-items:center;
     gap:9px;
     padding:8px 15px;
+
     border:1px solid var(--line);
-    background:rgba(255,255,255,.035);
+    background:rgba(255,255,255,.045);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
     border-radius:30px;
     color:#ccc;
     font-size:12px;
@@ -173,10 +244,14 @@ a{
     font-size:clamp(55px,8vw,115px);
     line-height:.9;
     letter-spacing:-7px;
+
+    text-shadow:
+        0 10px 45px rgba(0,0,0,.5);
 }
 
 .hero h1 span{
-    color:#73737e;
+    display:block;
+    color:#858591;
 }
 
 .hero p{
@@ -208,24 +283,36 @@ a{
 
 .primary:hover{
     transform:translateY(-4px);
-    box-shadow:0 15px 40px rgba(255,255,255,.12);
+    box-shadow:0 15px 40px rgba(255,255,255,.15);
 }
 
 .secondary{
     border:1px solid var(--line);
-    background:rgba(255,255,255,.03);
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
 }
 
 .secondary:hover{
     transform:translateY(-4px);
     border-color:rgba(255,255,255,.3);
+    background:rgba(255,255,255,.08);
 }
 
-/* TRUST */
+/* =====================================================
+   TRUST
+===================================================== */
 
 .trust{
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
+
+    background:rgba(7,7,11,.4);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
     padding:25px 0;
 }
 
@@ -234,17 +321,16 @@ a{
     justify-content:center;
     flex-wrap:wrap;
     gap:40px;
+
     color:#777782;
     font-size:12px;
     text-transform:uppercase;
     letter-spacing:2px;
 }
 
-/* SECTIONS */
-
-section{
-    padding:110px 0;
-}
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .label{
     color:#858590;
@@ -267,7 +353,9 @@ section{
     margin-top:17px;
 }
 
-/* PROJECTS */
+/* =====================================================
+   WORK
+===================================================== */
 
 .work-header{
     display:flex;
@@ -279,44 +367,73 @@ section{
 
 .projects{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:22px;
 }
 
 .project{
     overflow:hidden;
+    min-width:0;
+
     border:1px solid var(--line);
     border-radius:28px;
+
     background:var(--card);
-    transition:.4s;
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease;
+
+    /* IMPORTANT:
+       Cards are visible by default.
+       JavaScript only adds animation.
+    */
+    opacity:1;
+    transform:none;
 }
 
 .project:hover{
     transform:translateY(-8px);
     border-color:rgba(255,255,255,.25);
+    background:rgba(17,17,24,.9);
 }
 
 .project-image{
     height:390px;
     overflow:hidden;
     position:relative;
+    background:#111118;
 }
 
 .project-image img{
+    display:block;
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.6s;
+
+    transition:
+        transform .6s ease,
+        opacity .3s ease;
 }
 
-.project:hover img{
+.project:hover .project-image img{
     transform:scale(1.06);
 }
 
 .overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(transparent 45%,rgba(0,0,0,.75));
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            transparent 38%,
+            rgba(0,0,0,.78)
+        );
 }
 
 .project-content{
@@ -353,7 +470,48 @@ section{
     text-decoration:underline;
 }
 
-/* SERVICES */
+/* =====================================================
+   YOUR BUSINESS CARD
+===================================================== */
+
+.custom-project{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.09),
+            transparent 65%
+        ),
+        rgba(17,17,24,.7);
+}
+
+.custom-project .project-image{
+    display:grid;
+    place-items:center;
+}
+
+.custom-project-content{
+    text-align:center;
+    padding:30px;
+}
+
+.custom-star{
+    font-size:70px;
+    line-height:1;
+}
+
+.custom-project h3{
+    font-size:32px;
+    margin-top:12px;
+}
+
+.custom-project p{
+    color:#999;
+    margin-top:8px;
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
 
 .services{
     display:grid;
@@ -367,12 +525,17 @@ section{
     border:1px solid var(--line);
     border-radius:22px;
     padding:30px;
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
     transition:.3s;
 }
 
 .service:hover{
     transform:translateY(-6px);
     background:var(--card2);
+    border-color:rgba(255,255,255,.2);
 }
 
 .number{
@@ -392,7 +555,9 @@ section{
     margin-top:9px;
 }
 
-/* PROCESS */
+/* =====================================================
+   PROCESS
+===================================================== */
 
 .process{
     display:grid;
@@ -404,7 +569,9 @@ section{
     display:grid;
     grid-template-columns:55px 1fr;
     gap:20px;
+
     padding:28px 0;
+
     border-top:1px solid var(--line);
 }
 
@@ -427,7 +594,9 @@ section{
     margin-top:7px;
 }
 
-/* CTA */
+/* =====================================================
+   CTA
+===================================================== */
 
 .cta{
     text-align:center;
@@ -436,6 +605,7 @@ section{
 .cta h2{
     max-width:850px;
     margin:auto;
+
     font-size:clamp(48px,7vw,88px);
     line-height:.95;
     letter-spacing:-5px;
@@ -447,10 +617,18 @@ section{
     color:var(--muted);
 }
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     border-top:1px solid var(--line);
+
+    background:rgba(5,5,9,.55);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
     padding:40px 0 30px;
 }
 
@@ -478,20 +656,32 @@ footer{
     color:white;
 }
 
-/* REVEAL */
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
 
-.reveal{
+/*
+   Only elements with .animate-reveal are hidden.
+   Project cards themselves remain visible even if
+   JavaScript fails.
+*/
+
+.animate-reveal{
     opacity:0;
     transform:translateY(30px);
-    transition:opacity .8s ease,transform .8s ease;
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-.reveal.show{
+.animate-reveal.show{
     opacity:1;
     transform:translateY(0);
 }
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:900px){
 
@@ -513,17 +703,25 @@ footer{
 
     .nav-links{
         display:none;
+
         position:absolute;
         top:70px;
         left:4%;
         right:4%;
+
         padding:15px;
+
         flex-direction:column;
         align-items:stretch;
         gap:5px;
-        background:#111118;
+
+        background:rgba(17,17,24,.96);
+
         border:1px solid var(--line);
         border-radius:20px;
+
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
     }
 
     .nav-links.open{
@@ -575,10 +773,61 @@ footer{
         align-items:flex-start;
     }
 }
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    .reveal,
+    .animate-reveal{
+        opacity:1;
+        transform:none;
+        transition:none;
+    }
+
+    .project,
+    .service,
+    .btn{
+        transition:none;
+    }
+}
 </style>
 </head>
 
 <body>
+
+<!-- =====================================================
+     LIVE BACKGROUND VIDEO
+
+     Put your video here:
+     assets/luna-bg.mp4
+===================================================== -->
+
+<video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    aria-hidden="true"
+>
+    <source src="assets/luna-bg.mp4" type="video/mp4">
+</video>
+
+<div class="video-overlay"></div>
+<div class="video-glow"></div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header class="navbar" id="navbar">
 
@@ -601,7 +850,12 @@ Start a Project
 
 </nav>
 
-<button class="menu" id="menuButton">
+<button
+    class="menu"
+    id="menuButton"
+    type="button"
+    aria-label="Open menu"
+>
 ☰
 </button>
 
@@ -609,13 +863,20 @@ Start a Project
 
 </header>
 
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
 <div class="container">
 
-<div class="hero-content reveal">
+<div class="hero-content animate-reveal">
 
 <div class="badge">
 Premium websites for local businesses
@@ -653,6 +914,9 @@ Email Luna
 
 </section>
 
+
+<!-- TRUST -->
+
 <div class="trust">
 
 <div class="container trust-inner">
@@ -667,11 +931,16 @@ Email Luna
 
 </div>
 
+
+<!-- =====================================================
+     WORK
+===================================================== -->
+
 <section id="work">
 
 <div class="container">
 
-<div class="work-header reveal">
+<div class="work-header animate-reveal">
 
 <div>
 
@@ -692,15 +961,21 @@ industries and businesses.
 
 </div>
 
+
 <div class="projects">
 
-<article class="project reveal">
+<!-- =================================================
+     CAFE
+================================================= -->
+
+<article class="project">
 
 <div class="project-image">
 
 <img
 src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=90"
-alt="Cafe website"
+alt="Luna Cafe website"
+loading="lazy"
 >
 
 <div class="overlay"></div>
@@ -733,13 +1008,19 @@ View Café Demo →
 
 </article>
 
-<article class="project reveal">
+
+<!-- =================================================
+     SALON
+================================================= -->
+
+<article class="project">
 
 <div class="project-image">
 
 <img
 src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=90"
-alt="Salon website"
+alt="Luna Salon website"
+loading="lazy"
 >
 
 <div class="overlay"></div>
@@ -772,13 +1053,19 @@ View Salon Demo →
 
 </article>
 
-<article class="project reveal">
+
+<!-- =================================================
+     COACHING
+================================================= -->
+
+<article class="project">
 
 <div class="project-image">
 
 <img
 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=90"
-alt="Coaching website"
+alt="Luna Coaching website"
+loading="lazy"
 >
 
 <div class="overlay"></div>
@@ -811,33 +1098,71 @@ View Coaching Demo →
 
 </article>
 
-<article class="project reveal">
 
-<div
-class="project-image"
-style="
-display:grid;
-place-items:center;
-background:
-radial-gradient(
-circle at center,
-rgba(255,255,255,.09),
-transparent 60%
-);
-"
+<!-- =================================================
+     SCHOOL
+================================================= -->
+
+<article class="project">
+
+<div class="project-image">
+
+<img
+src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1400&q=90"
+alt="Aurelia International School website"
+loading="lazy"
 >
 
-<div style="text-align:center;padding:30px;">
+<div class="overlay"></div>
 
-<div style="font-size:65px;">
+</div>
+
+<div class="project-content">
+
+<div class="category">
+Education
+</div>
+
+<h3>
+Aurelia International School
+</h3>
+
+<p>
+A modern school website concept designed to showcase
+academics, admissions, activities and student life.
+</p>
+
+<a
+href="luna-school.html"
+class="project-link"
+>
+View School Demo →
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =================================================
+     YOUR BUSINESS
+================================================= -->
+
+<article class="project custom-project">
+
+<div class="project-image">
+
+<div class="custom-project-content">
+
+<div class="custom-star">
 ✦
 </div>
 
-<h3 style="font-size:32px;margin-top:10px;">
+<h3>
 Your Business
 </h3>
 
-<p style="color:#999;margin-top:8px;">
+<p>
 The next Luna website could be yours.
 </p>
 
@@ -860,7 +1185,10 @@ Your branding, services, images and business story —
 all customized into one polished website.
 </p>
 
-<a href="#contact" class="project-link">
+<a
+href="#contact"
+class="project-link"
+>
 Start a Project →
 </a>
 
@@ -874,11 +1202,16 @@ Start a Project →
 
 </section>
 
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
 <section id="services">
 
 <div class="container">
 
-<div class="reveal">
+<div class="animate-reveal">
 
 <div class="label">
 What we do
@@ -896,13 +1229,16 @@ Beautiful websites without unnecessary complexity.
 
 </div>
 
+
 <div class="services">
 
-<div class="service reveal">
+<div class="service animate-reveal">
 
 <div class="number">01</div>
 
-<h3>Website Design</h3>
+<h3>
+Website Design
+</h3>
 
 <p>
 Premium layouts designed around your business and
@@ -911,11 +1247,14 @@ your customers.
 
 </div>
 
-<div class="service reveal">
+
+<div class="service animate-reveal">
 
 <div class="number">02</div>
 
-<h3>Mobile Responsive</h3>
+<h3>
+Mobile Responsive
+</h3>
 
 <p>
 Your website looks great across phones, tablets
@@ -924,11 +1263,14 @@ and desktop screens.
 
 </div>
 
-<div class="service reveal">
+
+<div class="service animate-reveal">
 
 <div class="number">03</div>
 
-<h3>Business Setup</h3>
+<h3>
+Business Setup
+</h3>
 
 <p>
 Contact details, maps, opening hours, services
@@ -937,11 +1279,14 @@ and essential business information.
 
 </div>
 
-<div class="service reveal">
+
+<div class="service animate-reveal">
 
 <div class="number">04</div>
 
-<h3>Fast Performance</h3>
+<h3>
+Fast Performance
+</h3>
 
 <p>
 Lightweight websites designed to load quickly
@@ -950,11 +1295,14 @@ and feel smooth.
 
 </div>
 
-<div class="service reveal">
+
+<div class="service animate-reveal">
 
 <div class="number">05</div>
 
-<h3>Custom Content</h3>
+<h3>
+Custom Content
+</h3>
 
 <p>
 Your real business information, photos, services
@@ -963,11 +1311,14 @@ and branding.
 
 </div>
 
-<div class="service reveal">
+
+<div class="service animate-reveal">
 
 <div class="number">06</div>
 
-<h3>Future Updates</h3>
+<h3>
+Future Updates
+</h3>
 
 <p>
 Need changes later? Your website can grow with
@@ -982,11 +1333,16 @@ your business.
 
 </section>
 
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
 <section id="process">
 
 <div class="container process">
 
-<div class="reveal">
+<div class="animate-reveal">
 
 <div class="label">
 Our process
@@ -1004,9 +1360,10 @@ idea to launch.
 
 </div>
 
+
 <div>
 
-<div class="process-item reveal">
+<div class="process-item animate-reveal">
 
 <div class="process-number">
 01
@@ -1027,7 +1384,8 @@ contact details and goals.
 
 </div>
 
-<div class="process-item reveal">
+
+<div class="process-item animate-reveal">
 
 <div class="process-number">
 02
@@ -1048,7 +1406,8 @@ images around your brand.
 
 </div>
 
-<div class="process-item reveal">
+
+<div class="process-item animate-reveal">
 
 <div class="process-number">
 03
@@ -1069,7 +1428,8 @@ before launch.
 
 </div>
 
-<div class="process-item reveal">
+
+<div class="process-item animate-reveal">
 
 <div class="process-number">
 04
@@ -1096,9 +1456,14 @@ your customers.
 
 </section>
 
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
 <section class="cta" id="contact">
 
-<div class="container reveal">
+<div class="container animate-reveal">
 
 <div class="label">
 Have a business?
@@ -1138,6 +1503,11 @@ satyamm28kr74@gmail.com
 
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
 <div class="container footer-inner">
@@ -1154,6 +1524,7 @@ Premium websites for ambitious businesses.
 
 </div>
 
+
 <div class="footer-links">
 
 <a href="#work">Work</a>
@@ -1163,6 +1534,7 @@ Premium websites for ambitious businesses.
 
 </div>
 
+
 <div class="footer-copy">
 © <span id="year"></span> Luna.
 </div>
@@ -1171,20 +1543,30 @@ Premium websites for ambitious businesses.
 
 </footer>
 
+
 <script>
+
+/* =====================================================
+   NAVBAR
+===================================================== */
 
 const navbar =
 document.getElementById("navbar");
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function(){
 
-if(window.scrollY>40){
-navbar.classList.add("scrolled");
-}else{
-navbar.classList.remove("scrolled");
-}
+    if(window.scrollY > 40){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
 
 });
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
 const menuButton =
 document.getElementById("menuButton");
@@ -1192,56 +1574,115 @@ document.getElementById("menuButton");
 const navLinks =
 document.getElementById("navLinks");
 
-menuButton.addEventListener("click",function(){
+menuButton.addEventListener("click", function(){
 
-navLinks.classList.toggle("open");
+    navLinks.classList.toggle("open");
 
-menuButton.textContent =
-navLinks.classList.contains("open")
-? "×"
-: "☰";
-
-});
-
-document.querySelectorAll(".nav-links a").forEach(function(link){
-
-link.addEventListener("click",function(){
-
-navLinks.classList.remove("open");
-
-menuButton.textContent="☰";
+    menuButton.textContent =
+        navLinks.classList.contains("open")
+        ? "×"
+        : "☰";
 
 });
 
-});
 
-const observer =
-new IntersectionObserver(function(entries,observer){
+document.querySelectorAll(".nav-links a")
+.forEach(function(link){
 
-entries.forEach(function(entry){
+    link.addEventListener("click", function(){
 
-if(entry.isIntersecting){
+        navLinks.classList.remove("open");
 
-entry.target.classList.add("show");
+        menuButton.textContent = "☰";
 
-observer.unobserve(entry.target);
-
-}
+    });
 
 });
 
-},{threshold:.12});
 
-document.querySelectorAll(".reveal").forEach(function(element){
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
-observer.observe(element);
+const revealObserver =
+new IntersectionObserver(function(entries, observer){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},{
+    threshold:.12
+});
+
+
+document
+.querySelectorAll(".animate-reveal")
+.forEach(function(element){
+
+    revealObserver.observe(element);
 
 });
+
+
+/* =====================================================
+   YEAR
+===================================================== */
 
 document.getElementById("year").textContent =
 new Date().getFullYear();
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
+const backgroundVideo =
+document.querySelector(".background-video");
+
+
+if(backgroundVideo){
+
+    backgroundVideo.addEventListener("error", function(){
+
+        backgroundVideo.style.display = "none";
+
+    });
+
+
+    window.addEventListener("load", function(){
+
+        const playPromise =
+            backgroundVideo.play();
+
+        if(playPromise !== undefined){
+
+            playPromise.catch(function(){
+
+                /*
+                 Video autoplay can be blocked by
+                 some browsers. The website itself
+                 continues working normally.
+                */
+
+            });
+
+        }
+
+    });
+
+}
 
 </script>
 
 </body>
 </html>
+```

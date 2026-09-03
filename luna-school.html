@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurelia International School | Demo</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f8f5;
+    color: #17212b;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e4e8e5;
+}
+
+.nav-inner {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #123b4a;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+.logo span {
+    color: #123b4a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #147d79;
+}
+
+.nav-btn {
+    background: #147d79;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 10px;
+}
+
+.nav-btn:hover {
+    color: white !important;
+    background: #106a67;
+}
+
+/* HERO */
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(20,125,121,.14), transparent 28%),
+        linear-gradient(135deg, #f7f8f5 0%, #edf3ef 100%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 13px;
+    border-radius: 30px;
+    background: #dcefeb;
+    color: #126965;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    color: #123b4a;
+    margin-bottom: 22px;
+}
+
+.hero h1 em {
+    color: #147d79;
+    font-style: normal;
+}
+
+.hero p {
+    max-width: 590px;
+    font-size: 18px;
+    color: #5b6870;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 14px 21px;
+    border-radius: 11px;
+    font-weight: 700;
+    display: inline-block;
+    transition: .25s ease;
+}
+
+.primary-btn {
+    background: #123b4a;
+    color: white;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    border: 1px solid #cbd7d3;
+    background: white;
+}
+
+.secondary-btn:hover {
+    border-color: #147d79;
+    color: #147d79;
+}
+
+/* HERO VISUAL */
+.hero-card {
+    background: #123b4a;
+    min-height: 430px;
+    border-radius: 30px;
+    padding: 28px;
+    color: white;
+    position: relative;
+    box-shadow: 0 25px 70px rgba(18,59,74,.20);
+    overflow: hidden;
+}
+
+.hero-card::before,
+.hero-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.13);
+}
+
+.hero-card::before {
+    width: 320px;
+    height: 320px;
+    right: -120px;
+    top: -120px;
+}
+
+.hero-card::after {
+    width: 240px;
+    height: 240px;
+    left: -100px;
+    bottom: -100px;
+}
+
+.school-visual {
+    height: 100%;
+    min-height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.visual-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.visual-label {
+    font-size: 13px;
+    opacity: .7;
+}
+
+.visual-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.12);
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+}
+
+.visual-title {
+    font-size: 39px;
+    line-height: 1.08;
+    font-weight: 800;
+    max-width: 390px;
+}
+
+.visual-bottom {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+
+.visual-stat {
+    padding: 14px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.09);
+}
+
+.visual-stat strong {
+    display: block;
+    font-size: 21px;
+}
+
+.visual-stat small {
+    opacity: .65;
+}
+
+/* SECTION */
+section {
+    padding: 90px 0;
+}
+
+.section-head {
+    max-width: 690px;
+    margin-bottom: 45px;
+}
+
+.section-tag {
+    color: #147d79;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+}
+
+.section-head h2 {
+    color: #123b4a;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 14px;
+}
+
+.section-head p {
+    color: #65727a;
+}
+
+/* FEATURES */
+.features {
+    background: white;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.feature {
+    border: 1px solid #e4e9e6;
+    border-radius: 20px;
+    padding: 28px;
+    transition: .25s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(0,0,0,.07);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    background: #e4f2ef;
+    color: #147d79;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    color: #123b4a;
+    margin-bottom: 8px;
+}
+
+.feature p {
+    color: #68747b;
+    font-size: 14px;
+}
+
+/* ACADEMICS */
+.academics {
+    background: #f7f8f5;
+}
+
+.academic-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+
+.academic {
+    background: white;
+    padding: 24px;
+    border-radius: 18px;
+    border: 1px solid #e5e9e7;
+}
+
+.academic span {
+    font-size: 12px;
+    color: #147d79;
+    font-weight: 800;
+}
+
+.academic h3 {
+    color: #123b4a;
+    margin: 8px 0;
+}
+
+.academic p {
+    font-size: 13px;
+    color: #6a747a;
+}
+
+/* STATS */
+.stats {
+    background: #123b4a;
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+.stat span {
+    color: rgba(255,255,255,.65);
+    font-size: 14px;
+}
+
+/* ADMISSIONS */
+.admissions {
+    background: white;
+}
+
+.admission-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.step {
+    position: relative;
+    padding: 30px;
+    border-radius: 20px;
+    background: #f6f8f6;
+}
+
+.number {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #147d79;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.step h3 {
+    color: #123b4a;
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: #6a747a;
+    font-size: 14px;
+}
+
+/* CTA */
+.cta {
+    padding: 80px 0;
+    background: #edf3ef;
+}
+
+.cta-box {
+    background: #123b4a;
+    color: white;
+    border-radius: 28px;
+    padding: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.cta-box h2 {
+    font-size: clamp(30px,4vw,46px);
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.cta-box p {
+    color: rgba(255,255,255,.7);
+}
+
+.cta-btn {
+    background: white;
+    color: #123b4a;
+    padding: 15px 22px;
+    border-radius: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* FOOTER */
+footer {
+    background: #0d2d39;
+    color: white;
+    padding: 55px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 45px;
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,.6);
+    max-width: 360px;
+    margin-top: 15px;
+}
+
+.footer-col h4 {
+    margin-bottom: 14px;
+}
+
+.footer-col a,
+.footer-col p {
+    display: block;
+    color: rgba(255,255,255,.58);
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 20px;
+    color: rgba(255,255,255,.45);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* DEMO NOTICE */
+.demo-notice {
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+    z-index: 2000;
+    background: #123b4a;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 11px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .academic-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .admission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .nav-links a:not(.nav-btn) {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .feature-grid,
+    .academic-grid,
+    .stats-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+        min-height: 360px;
+    }
+
+    .visual-title {
+        font-size: 31px;
+    }
+
+    .visual-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .cta-box {
+        padding: 35px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo-notice">
+    LUNA DEMO • Fictional School Concept
+</div>
+
+<nav>
+    <div class="container nav-inner">
+
+        <a href="#" class="logo">
+            <div class="logo-mark">A</div>
+            <div>
+                Aurelia<br>
+                <span>International School</span>
+            </div>
+        </a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#academics">Academics</a>
+            <a href="#admissions">Admissions</a>
+            <a href="#contact" class="nav-btn">Enquire Now</a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container hero-grid">
+
+        <div>
+            <span class="badge">Nurturing curious minds since 2008</span>
+
+            <h1>
+                Learn.<br>
+                Grow.<br>
+                <em>Lead.</em>
+            </h1>
+
+            <p>
+                A future-focused learning environment where academic excellence,
+                creativity and character come together.
+            </p>
+
+            <div class="buttons">
+                <a href="#admissions" class="primary-btn">
+                    Explore Admissions →
+                </a>
+
+                <a href="#about" class="secondary-btn">
+                    Discover Our School
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+
+            <div class="school-visual">
+
+                <div class="visual-top">
+                    <span class="visual-label">AURELIA • PATNA</span>
+                    <div class="visual-icon">✦</div>
+                </div>
+
+                <div class="visual-title">
+                    Education that prepares students for tomorrow.
+                </div>
+
+                <div class="visual-bottom">
+
+                    <div class="visual-stat">
+                        <strong>16+</strong>
+                        <small>Years</small>
+                    </div>
+
+                    <div class="visual-stat">
+                        <strong>32</strong>
+                        <small>Clubs & Activities</small>
+                    </div>
+
+                    <div class="visual-stat">
+                        <strong>1:18</strong>
+                        <small>Teacher Ratio</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="features">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-tag">Why Aurelia</div>
+
+            <h2>
+                More than a classroom.
+                A place to discover your potential.
+            </h2>
+
+            <p>
+                Our learning philosophy combines strong academics with
+                experiences that help students become confident,
+                curious and responsible individuals.
+            </p>
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                <div class="feature-icon">✦</div>
+                <h3>Academic Excellence</h3>
+                <p>
+                    Strong foundations, experienced educators and
+                    learning designed around every student's potential.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">◈</div>
+                <h3>Beyond Academics</h3>
+                <p>
+                    Sports, arts, technology, leadership and clubs
+                    encourage students to explore their interests.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">◎</div>
+                <h3>Student Wellbeing</h3>
+                <p>
+                    A supportive environment where students feel heard,
+                    respected and encouraged to grow.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics" class="academics">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-tag">Academics</div>
+
+            <h2>
+                Learning designed for every stage.
+            </h2>
+
+            <p>
+                A structured academic journey with opportunities
+                for exploration at every level.
+            </p>
+        </div>
+
+        <div class="academic-grid">
+
+            <div class="academic">
+                <span>01</span>
+                <h3>Primary</h3>
+                <p>
+                    Building curiosity, confidence and strong foundational skills.
+                </p>
+            </div>
+
+            <div class="academic">
+                <span>02</span>
+                <h3>Middle School</h3>
+                <p>
+                    Developing independent thinking through interdisciplinary learning.
+                </p>
+            </div>
+
+            <div class="academic">
+                <span>03</span>
+                <h3>Secondary</h3>
+                <p>
+                    Focused preparation with opportunities for academic exploration.
+                </p>
+            </div>
+
+            <div class="academic">
+                <span>04</span>
+                <h3>Senior School</h3>
+                <p>
+                    Helping students prepare confidently for higher education and beyond.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <strong>16+</strong>
+            <span>Years of Excellence</span>
+        </div>
+
+        <div class="stat">
+            <strong>2,400+</strong>
+            <span>Students</span>
+        </div>
+
+        <div class="stat">
+            <strong>150+</strong>
+            <span>Educators & Staff</span>
+        </div>
+
+        <div class="stat">
+            <strong>32</strong>
+            <span>Clubs & Activities</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ADMISSIONS -->
+<section id="admissions" class="admissions">
+
+    <div class="container">
+
+        <div class="section-head">
+            <div class="section-tag">Admissions</div>
+
+            <h2>
+                Your journey starts here.
+            </h2>
+
+            <p>
+                A simple three-step admission process designed
+                to make your first interaction with us easy.
+            </p>
+        </div>
+
+        <div class="admission-grid">
+
+            <div class="step">
+                <div class="number">1</div>
+                <h3>Submit an Enquiry</h3>
+                <p>
+                    Share your basic details and tell us which
+                    grade you're interested in.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="number">2</div>
+                <h3>Campus Interaction</h3>
+                <p>
+                    Meet our academic team and explore the
+                    learning environment.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="number">3</div>
+                <h3>Begin Your Journey</h3>
+                <p>
+                    Complete the admission process and become
+                    part of the Aurelia community.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div>
+                <h2>Ready to discover Aurelia?</h2>
+
+                <p>
+                    Speak with our admissions team and learn more
+                    about the school.
+                </p>
+            </div>
+
+            <a
+                class="cta-btn"
+                href="mailto:satyamm28kr74@gmail.com?subject=School%20Admission%20Enquiry"
+            >
+                Send an Enquiry →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <h2>Aurelia International School</h2>
+
+                <p>
+                    Inspiring students to learn deeply,
+                    think independently and lead with purpose.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="#about">About Us</a>
+                <a href="#academics">Academics</a>
+                <a href="#admissions">Admissions</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Patna, Bihar</p>
+                <p>+91 00000 00000</p>
+                <p>satyamm28kr74@gmail.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Aurelia International School • Demo website created by Luna
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
