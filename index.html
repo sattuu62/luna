@@ -1,48 +1,22 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta
-name="description"
-content="Luna — Modern, responsive websites for businesses, startups and ambitious brands."
->
-
-<meta name="theme-color" content="#07070b">
-
+<meta name="description" content="Luna — Premium websites for ambitious local businesses.">
 <title>Luna — Premium Websites</title>
 
-
 <style>
-
-/* =====================================================
-   ROOT
-===================================================== */
-
 :root{
-
     --bg:#07070b;
     --card:rgba(17,17,24,.78);
-    --card2:rgba(22,22,30,.92);
-
+    --card2:rgba(22,22,30,.88);
     --text:#f7f7f7;
     --muted:#a4a4af;
-
     --line:rgba(255,255,255,.11);
-
-    --soft-line:rgba(255,255,255,.07);
-
     --max:1180px;
-
 }
-
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     margin:0;
@@ -50,619 +24,363 @@ content="Luna — Modern, responsive websites for businesses, startups and ambit
     box-sizing:border-box;
 }
 
-
 html{
     scroll-behavior:smooth;
 }
 
-
 body{
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     background:var(--bg);
-
     color:var(--text);
-
     line-height:1.6;
-
     overflow-x:hidden;
-
 }
-
-
-body::selection{
-    background:white;
-    color:#07070b;
-}
-
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-button,
-input,
-textarea{
-    font:inherit;
-}
-
-
-.container{
-
-    width:92%;
-
-    max-width:var(--max);
-
-    margin:auto;
-
-}
-
-
-section{
-
-    padding:110px 0;
-
-}
-
 
 /* =====================================================
    BACKGROUND VIDEO
 ===================================================== */
 
 .background-video{
-
     position:fixed;
-
     inset:0;
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     z-index:-3;
-
     pointer-events:none;
-
     background:#07070b;
-
 }
-
 
 .video-overlay{
-
     position:fixed;
-
     inset:0;
-
     z-index:-2;
-
     pointer-events:none;
 
     background:
-
-    linear-gradient(
-        180deg,
-        rgba(7,7,11,.82),
-        rgba(7,7,11,.50) 45%,
-        rgba(7,7,11,.94)
-    );
-
+        linear-gradient(
+            180deg,
+            rgba(7,7,11,.78),
+            rgba(7,7,11,.48) 45%,
+            rgba(7,7,11,.88)
+        );
 }
-
 
 .video-glow{
-
     position:fixed;
-
     inset:0;
-
     z-index:-1;
-
     pointer-events:none;
 
     background:
-
-    radial-gradient(
-        circle at 50% 15%,
-        rgba(255,255,255,.10),
-        transparent 38%
-    );
-
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(255,255,255,.09),
+            transparent 38%
+        );
 }
 
+/* =====================================================
+   GENERAL
+===================================================== */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:var(--max);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
 
 /* =====================================================
    NAVBAR
 ===================================================== */
 
 .navbar{
-
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
-
     z-index:1000;
-
     padding:22px 0;
-
     transition:.3s ease;
-
 }
-
 
 .navbar.scrolled{
-
     background:rgba(7,7,11,.88);
-
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
-
     border-bottom:1px solid var(--line);
-
     padding:14px 0;
-
 }
-
 
 .nav-inner{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
 }
-
 
 .logo{
-
     font-size:25px;
-
     font-weight:900;
-
     letter-spacing:4px;
-
 }
-
 
 .logo span{
-
     opacity:.4;
-
 }
-
 
 .nav-links{
-
     display:flex;
-
     align-items:center;
-
     gap:28px;
-
 }
-
 
 .nav-links a{
-
     color:var(--muted);
-
     font-size:14px;
-
     transition:.25s;
-
 }
-
 
 .nav-links a:hover{
-
     color:white;
-
 }
-
 
 .nav-button{
-
     background:white;
-
     color:#07070b!important;
-
     padding:11px 19px;
-
     border-radius:30px;
-
     font-weight:bold;
-
 }
-
 
 .menu{
-
     display:none;
-
     border:1px solid var(--line);
-
     background:rgba(17,17,24,.85);
-
     color:white;
-
     border-radius:50%;
-
     width:44px;
     height:44px;
-
     cursor:pointer;
-
     font-size:18px;
-
 }
-
 
 /* =====================================================
    HERO
 ===================================================== */
 
 .hero{
-
     min-height:100vh;
-
     display:flex;
-
     align-items:center;
-
     text-align:center;
-
     padding:140px 0 100px;
-
     position:relative;
-
 }
 
-
 .hero:before{
-
     content:"";
-
     position:absolute;
-
     width:650px;
     height:650px;
-
     left:50%;
     top:10%;
-
     transform:translateX(-50%);
 
     background:
-
-    radial-gradient(
-        circle,
-        rgba(255,255,255,.11),
-        transparent 68%
-    );
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.11),
+            transparent 68%
+        );
 
     pointer-events:none;
-
 }
-
 
 .hero-content{
-
     position:relative;
-
     z-index:2;
-
     max-width:950px;
-
     margin:auto;
-
 }
 
-
 .badge{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:9px;
-
     padding:8px 15px;
 
     border:1px solid var(--line);
-
     background:rgba(255,255,255,.045);
 
     backdrop-filter:blur(12px);
-
     -webkit-backdrop-filter:blur(12px);
 
     border-radius:30px;
-
     color:#ccc;
-
     font-size:12px;
-
     font-weight:bold;
-
     margin-bottom:25px;
-
 }
-
 
 .badge:before{
-
     content:"";
-
     width:7px;
     height:7px;
-
     border-radius:50%;
-
     background:white;
-
     box-shadow:0 0 14px white;
-
 }
 
-
 .hero h1{
-
     font-size:clamp(55px,8vw,115px);
-
     line-height:.9;
-
     letter-spacing:-7px;
 
     text-shadow:
         0 10px 45px rgba(0,0,0,.5);
-
 }
-
 
 .hero h1 span{
-
     display:block;
-
     color:#858591;
-
 }
-
 
 .hero p{
-
-    max-width:680px;
-
+    max-width:650px;
     margin:30px auto 0;
-
     color:var(--muted);
-
     font-size:17px;
-
 }
-
 
 .buttons{
-
     display:flex;
-
     justify-content:center;
-
     gap:13px;
-
     flex-wrap:wrap;
-
     margin-top:35px;
-
 }
-
 
 .btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
     padding:15px 24px;
-
     border-radius:30px;
-
     font-weight:bold;
-
     transition:.3s;
-
-    cursor:pointer;
-
 }
-
 
 .primary{
-
     background:white;
-
     color:#07070b;
-
 }
-
 
 .primary:hover{
-
     transform:translateY(-4px);
-
-    box-shadow:
-        0 15px 40px rgba(255,255,255,.15);
-
+    box-shadow:0 15px 40px rgba(255,255,255,.15);
 }
 
-
 .secondary{
-
     border:1px solid var(--line);
-
     background:rgba(255,255,255,.04);
 
     backdrop-filter:blur(12px);
-
     -webkit-backdrop-filter:blur(12px);
-
 }
-
 
 .secondary:hover{
-
     transform:translateY(-4px);
-
     border-color:rgba(255,255,255,.3);
-
     background:rgba(255,255,255,.08);
-
 }
-
 
 /* =====================================================
    TRUST
 ===================================================== */
 
 .trust{
-
     border-top:1px solid var(--line);
-
     border-bottom:1px solid var(--line);
 
     background:rgba(7,7,11,.4);
 
     backdrop-filter:blur(12px);
-
     -webkit-backdrop-filter:blur(12px);
 
     padding:25px 0;
-
 }
 
-
 .trust-inner{
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:40px;
 
     color:#777782;
-
     font-size:12px;
-
     text-transform:uppercase;
-
     letter-spacing:2px;
-
 }
 
-
 /* =====================================================
-   SECTION HEADINGS
+   SECTIONS
 ===================================================== */
 
 .label{
-
     color:#858590;
-
     text-transform:uppercase;
-
     letter-spacing:3px;
-
     font-size:11px;
-
     font-weight:bold;
-
     margin-bottom:15px;
-
 }
-
 
 .section-title{
-
     font-size:clamp(42px,6vw,76px);
-
     line-height:.98;
-
     letter-spacing:-4px;
-
 }
-
 
 .section-copy{
-
     color:var(--muted);
-
     max-width:600px;
-
     margin-top:17px;
-
 }
-
 
 /* =====================================================
    WORK
 ===================================================== */
 
 .work-header{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:end;
-
     gap:30px;
-
     margin-bottom:50px;
-
 }
-
 
 .projects{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:22px;
-
 }
 
-
 .project{
-
     overflow:hidden;
-
     min-width:0;
 
     border:1px solid var(--line);
-
     border-radius:28px;
 
     background:var(--card);
 
     backdrop-filter:blur(14px);
-
     -webkit-backdrop-filter:blur(14px);
 
     transition:
@@ -670,1336 +388,391 @@ section{
         border-color .4s ease,
         background .4s ease;
 
+    /* IMPORTANT:
+       Cards are visible by default.
+       JavaScript only adds animation.
+    */
     opacity:1;
-
     transform:none;
-
 }
-
 
 .project:hover{
-
     transform:translateY(-8px);
-
     border-color:rgba(255,255,255,.25);
-
     background:rgba(17,17,24,.9);
-
 }
-
 
 .project-image{
-
     height:390px;
-
     overflow:hidden;
-
     position:relative;
-
     background:#111118;
-
 }
 
-
 .project-image img{
-
     display:block;
-
     width:100%;
     height:100%;
-
     object-fit:cover;
 
     transition:
         transform .6s ease,
         opacity .3s ease;
-
 }
-
 
 .project:hover .project-image img{
-
     transform:scale(1.06);
-
 }
 
-
 .overlay{
-
     position:absolute;
-
     inset:0;
-
     pointer-events:none;
 
     background:
-
-    linear-gradient(
-        transparent 38%,
-        rgba(0,0,0,.78)
-    );
-
+        linear-gradient(
+            transparent 38%,
+            rgba(0,0,0,.78)
+        );
 }
-
 
 .project-content{
-
     padding:25px;
-
 }
-
 
 .category{
-
     color:#858590;
-
     text-transform:uppercase;
-
     letter-spacing:2px;
-
     font-size:10px;
-
     font-weight:bold;
-
 }
-
 
 .project h3{
-
     font-size:27px;
-
     margin-top:7px;
-
 }
-
 
 .project p{
-
     color:var(--muted);
-
     font-size:14px;
-
     margin-top:8px;
-
 }
-
-
-.project-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    flex-wrap:wrap;
-
-    margin-top:18px;
-
-}
-
 
 .project-link{
-
+    display:inline-block;
+    margin-top:18px;
     font-weight:bold;
-
     font-size:14px;
-
 }
-
 
 .project-link:hover{
-
     text-decoration:underline;
-
 }
-
-
-.project-cta{
-
-    color:#aaa;
-
-    font-size:13px;
-
-}
-
-
-.project-cta:hover{
-
-    color:white;
-
-}
-
 
 /* =====================================================
    YOUR BUSINESS CARD
 ===================================================== */
 
 .custom-project{
-
     background:
-
-    radial-gradient(
-        circle at center,
-        rgba(255,255,255,.09),
-        transparent 65%
-    ),
-
-    rgba(17,17,24,.7);
-
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.09),
+            transparent 65%
+        ),
+        rgba(17,17,24,.7);
 }
-
 
 .custom-project .project-image{
-
     display:grid;
-
     place-items:center;
-
 }
-
 
 .custom-project-content{
-
     text-align:center;
-
     padding:30px;
-
 }
-
 
 .custom-star{
-
     font-size:70px;
-
     line-height:1;
-
 }
-
 
 .custom-project h3{
-
     font-size:32px;
-
     margin-top:12px;
-
 }
-
 
 .custom-project p{
-
     color:#999;
-
     margin-top:8px;
-
 }
-
-
-/* =====================================================
-   WHAT WE BUILD
-===================================================== */
-
-.build-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,minmax(0,1fr));
-
-    gap:14px;
-
-    margin-top:50px;
-
-}
-
-
-.build-card{
-
-    padding:28px;
-
-    border:1px solid var(--line);
-
-    border-radius:22px;
-
-    background:var(--card);
-
-    backdrop-filter:blur(14px);
-
-    -webkit-backdrop-filter:blur(14px);
-
-    transition:.3s;
-
-}
-
-
-.build-card:hover{
-
-    transform:translateY(-6px);
-
-    border-color:rgba(255,255,255,.22);
-
-    background:var(--card2);
-
-}
-
-
-.build-icon{
-
-    font-size:25px;
-
-}
-
-
-.build-card h3{
-
-    margin-top:22px;
-
-    font-size:18px;
-
-}
-
-
-.build-card p{
-
-    margin-top:7px;
-
-    color:var(--muted);
-
-    font-size:13px;
-
-}
-
 
 /* =====================================================
    SERVICES
 ===================================================== */
 
 .services{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:16px;
-
     margin-top:50px;
-
 }
 
-
 .service{
-
     background:var(--card);
-
     border:1px solid var(--line);
-
     border-radius:22px;
-
     padding:30px;
 
     backdrop-filter:blur(14px);
-
     -webkit-backdrop-filter:blur(14px);
 
     transition:.3s;
-
 }
-
 
 .service:hover{
-
     transform:translateY(-6px);
-
     background:var(--card2);
-
     border-color:rgba(255,255,255,.2);
-
 }
-
 
 .number{
-
     color:#777782;
-
     font-weight:bold;
-
     font-size:13px;
-
 }
-
 
 .service h3{
-
     margin-top:40px;
-
     font-size:20px;
-
 }
-
 
 .service p{
-
     color:var(--muted);
-
     font-size:14px;
-
     margin-top:9px;
-
 }
-
-
-/* =====================================================
-   PRICING
-===================================================== */
-
-.pricing-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-    margin-top:50px;
-
-    align-items:stretch;
-
-}
-
-
-.price-card{
-
-    position:relative;
-
-    display:flex;
-
-    flex-direction:column;
-
-    padding:32px;
-
-    border:1px solid var(--line);
-
-    border-radius:25px;
-
-    background:var(--card);
-
-    backdrop-filter:blur(15px);
-
-    -webkit-backdrop-filter:blur(15px);
-
-    transition:.35s;
-
-}
-
-
-.price-card:hover{
-
-    transform:translateY(-7px);
-
-    border-color:rgba(255,255,255,.25);
-
-}
-
-
-.price-card.featured{
-
-    border-color:
-        rgba(255,255,255,.30);
-
-    background:
-
-    radial-gradient(
-        circle at top right,
-        rgba(255,255,255,.09),
-        transparent 45%
-    ),
-
-    var(--card);
-
-}
-
-
-.popular{
-
-    position:absolute;
-
-    top:18px;
-
-    right:18px;
-
-    padding:6px 10px;
-
-    border-radius:20px;
-
-    background:white;
-
-    color:#07070b;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-}
-
-
-.price-name{
-
-    color:#999;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    font-size:11px;
-
-    font-weight:bold;
-
-}
-
-
-.price{
-
-    margin-top:12px;
-
-    font-size:43px;
-
-    letter-spacing:-2px;
-
-}
-
-
-.price small{
-
-    font-size:13px;
-
-    color:#888;
-
-    letter-spacing:0;
-
-}
-
-
-.price-description{
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    margin-top:8px;
-
-    min-height:55px;
-
-}
-
-
-.features{
-
-    list-style:none;
-
-    margin:28px 0;
-
-    display:grid;
-
-    gap:12px;
-
-}
-
-
-.features li{
-
-    color:#c7c7cd;
-
-    font-size:13px;
-
-}
-
-
-.features li::before{
-
-    content:"✓";
-
-    margin-right:10px;
-
-    color:white;
-
-    font-weight:bold;
-
-}
-
-
-.price-button{
-
-    margin-top:auto;
-
-    width:100%;
-
-}
-
 
 /* =====================================================
    PROCESS
 ===================================================== */
 
 .process{
-
     display:grid;
-
     grid-template-columns:.8fr 1.2fr;
-
     gap:80px;
-
 }
 
-
 .process-item{
-
     display:grid;
-
     grid-template-columns:55px 1fr;
-
     gap:20px;
 
     padding:28px 0;
 
     border-top:1px solid var(--line);
-
 }
-
 
 .process-item:last-child{
-
     border-bottom:1px solid var(--line);
-
 }
-
 
 .process-number{
-
     color:#777782;
-
     font-weight:bold;
-
 }
-
 
 .process-item h3{
-
     font-size:19px;
-
 }
-
 
 .process-item p{
-
     color:var(--muted);
-
     font-size:14px;
-
     margin-top:7px;
-
 }
-
-
-/* =====================================================
-   FAQ
-===================================================== */
-
-.faq-container{
-
-    max-width:850px;
-
-    margin:50px auto 0;
-
-}
-
-
-.faq-item{
-
-    border-top:1px solid var(--line);
-
-}
-
-
-.faq-item:last-child{
-
-    border-bottom:1px solid var(--line);
-
-}
-
-
-.faq-question{
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding:25px 0;
-
-    border:0;
-
-    background:none;
-
-    color:white;
-
-    text-align:left;
-
-    cursor:pointer;
-
-    font-size:17px;
-
-    font-weight:bold;
-
-}
-
-
-.faq-icon{
-
-    color:#888;
-
-    font-size:22px;
-
-    transition:.3s;
-
-}
-
-
-.faq-answer{
-
-    max-height:0;
-
-    overflow:hidden;
-
-    transition:
-        max-height .4s ease,
-        padding .4s ease;
-
-}
-
-
-.faq-answer p{
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    padding:0 45px 0 0;
-
-}
-
-
-.faq-item.active
-.faq-answer{
-
-    max-height:200px;
-
-    padding-bottom:25px;
-
-}
-
-
-.faq-item.active
-.faq-icon{
-
-    transform:rotate(45deg);
-
-    color:white;
-
-}
-
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        .85fr 1.15fr;
-
-    gap:70px;
-
-    align-items:start;
-
-}
-
-
-.contact-info{
-
-    position:sticky;
-
-    top:120px;
-
-}
-
-
-.contact-info h2{
-
-    font-size:clamp(42px,5vw,70px);
-
-    line-height:.98;
-
-    letter-spacing:-4px;
-
-}
-
-
-.contact-info p{
-
-    color:var(--muted);
-
-    margin-top:20px;
-
-    max-width:480px;
-
-}
-
-
-.contact-email{
-
-    display:inline-block;
-
-    margin-top:25px;
-
-    color:#ddd;
-
-    font-weight:bold;
-
-    word-break:break-word;
-
-}
-
-
-.contact-form{
-
-    padding:30px;
-
-    border:1px solid var(--line);
-
-    border-radius:26px;
-
-    background:var(--card);
-
-    backdrop-filter:blur(15px);
-
-    -webkit-backdrop-filter:blur(15px);
-
-}
-
-
-.form-row{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:15px;
-
-}
-
-
-.form-group{
-
-    margin-bottom:17px;
-
-}
-
-
-.form-group label{
-
-    display:block;
-
-    color:#aaa;
-
-    font-size:12px;
-
-    margin-bottom:7px;
-
-}
-
-
-.form-group input,
-.form-group textarea,
-.form-group select{
-
-    width:100%;
-
-    border:1px solid var(--line);
-
-    background:rgba(255,255,255,.04);
-
-    color:white;
-
-    border-radius:13px;
-
-    padding:13px 14px;
-
-    outline:none;
-
-    transition:.25s;
-
-}
-
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus{
-
-    border-color:
-        rgba(255,255,255,.35);
-
-    background:rgba(255,255,255,.06);
-
-}
-
-
-.form-group textarea{
-
-    min-height:130px;
-
-    resize:vertical;
-
-}
-
-
-.form-group select{
-
-    appearance:auto;
-
-}
-
-
-.form-group option{
-
-    background:#111118;
-
-    color:white;
-
-}
-
-
-.form-note{
-
-    color:#777;
-
-    font-size:11px;
-
-    margin-top:10px;
-
-    text-align:center;
-
-}
-
-
-.form-success{
-
-    display:none;
-
-    margin-top:15px;
-
-    padding:12px;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    border-radius:12px;
-
-    color:#ccc;
-
-    font-size:13px;
-
-    text-align:center;
-
-}
-
 
 /* =====================================================
    CTA
 ===================================================== */
 
 .cta{
-
     text-align:center;
-
 }
 
-
 .cta h2{
-
     max-width:850px;
-
     margin:auto;
 
     font-size:clamp(48px,7vw,88px);
-
     line-height:.95;
-
     letter-spacing:-5px;
-
 }
-
 
 .cta p{
-
     max-width:570px;
-
     margin:22px auto 0;
-
     color:var(--muted);
-
 }
-
 
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer{
-
     border-top:1px solid var(--line);
 
     background:rgba(5,5,9,.55);
 
     backdrop-filter:blur(15px);
-
     -webkit-backdrop-filter:blur(15px);
 
     padding:40px 0 30px;
-
 }
-
 
 .footer-inner{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:20px;
-
     flex-wrap:wrap;
-
 }
-
 
 .footer-copy{
-
     color:#73737d;
-
     font-size:12px;
-
 }
-
 
 .footer-links{
-
     display:flex;
-
     gap:22px;
-
     color:#888892;
-
     font-size:13px;
-
 }
-
 
 .footer-links a:hover{
-
     color:white;
-
 }
-
-
-.github-link{
-
-    border:1px solid var(--line);
-
-    padding:8px 12px;
-
-    border-radius:20px;
-
-    transition:.25s;
-
-}
-
-
-.github-link:hover{
-
-    color:white;
-
-    border-color:rgba(255,255,255,.3);
-
-}
-
 
 /* =====================================================
    REVEAL ANIMATION
 ===================================================== */
 
+/*
+   Only elements with .animate-reveal are hidden.
+   Project cards themselves remain visible even if
+   JavaScript fails.
+*/
+
 .animate-reveal{
-
     opacity:0;
-
     transform:translateY(30px);
-
     transition:
-
         opacity .8s ease,
-
         transform .8s ease;
-
 }
-
 
 .animate-reveal.show{
-
     opacity:1;
-
     transform:translateY(0);
-
 }
-
 
 /* =====================================================
    MOBILE
 ===================================================== */
 
-@media(max-width:1000px){
-
-    .build-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-}
-
-
 @media(max-width:900px){
 
     .projects{
-
         grid-template-columns:1fr;
-
     }
-
 
     .services{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
     }
-
-
-    .pricing-grid{
-
-        grid-template-columns:1fr;
-
-        max-width:600px;
-
-        margin-left:auto;
-        margin-right:auto;
-
-    }
-
 
     .process{
-
         grid-template-columns:1fr;
-
         gap:50px;
-
     }
-
-
-    .contact-grid{
-
-        grid-template-columns:1fr;
-
-        gap:45px;
-
-    }
-
-
-    .contact-info{
-
-        position:static;
-
-    }
-
 }
-
 
 @media(max-width:680px){
 
     .nav-links{
-
         display:none;
 
         position:absolute;
-
         top:70px;
-
         left:4%;
-
         right:4%;
 
         padding:15px;
 
         flex-direction:column;
-
         align-items:stretch;
-
         gap:5px;
 
         background:rgba(17,17,24,.96);
 
         border:1px solid var(--line);
-
         border-radius:20px;
 
         backdrop-filter:blur(20px);
-
         -webkit-backdrop-filter:blur(20px);
-
     }
-
 
     .nav-links.open{
-
         display:flex;
-
     }
-
 
     .nav-links a{
-
         padding:12px;
-
     }
-
 
     .menu{
-
         display:block;
-
     }
-
 
     .hero{
-
         padding-top:130px;
-
     }
-
 
     .hero h1{
-
         letter-spacing:-4px;
-
     }
-
 
     .trust-inner{
-
         gap:18px;
-
     }
-
 
     section{
-
         padding:80px 0;
-
     }
-
 
     .work-header{
-
         display:block;
-
     }
-
 
     .work-header .section-copy{
-
         margin-top:18px;
-
     }
-
 
     .services{
-
         grid-template-columns:1fr;
-
     }
-
-
-    .build-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
 
     .project-image{
-
         height:300px;
-
     }
-
-
-    .form-row{
-
-        grid-template-columns:1fr;
-
-        gap:0;
-
-    }
-
-
-    .contact-form{
-
-        padding:22px;
-
-    }
-
 
     .footer-inner{
-
         flex-direction:column;
-
         align-items:flex-start;
-
     }
-
-
-    .footer-links{
-
-        flex-wrap:wrap;
-
-    }
-
 }
-
 
 /* =====================================================
    REDUCED MOTION
@@ -2008,45 +781,32 @@ footer{
 @media(prefers-reduced-motion:reduce){
 
     html{
-
         scroll-behavior:auto;
-
     }
 
-
+    .reveal,
     .animate-reveal{
-
         opacity:1;
-
         transform:none;
-
         transition:none;
-
     }
-
 
     .project,
     .service,
-    .build-card,
-    .price-card,
     .btn{
-
         transition:none;
-
     }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
 <!-- =====================================================
-     BACKGROUND VIDEO
+     LIVE BACKGROUND VIDEO
+
+     Put your video here:
+     assets/luna-bg.mp4
 ===================================================== -->
 
 <video
@@ -2058,75 +818,37 @@ footer{
     preload="metadata"
     aria-hidden="true"
 >
-
-    <source
-        src="assets/luna-bg.mp4"
-        type="video/mp4"
-    >
-
+    <source src="assets/luna-bg.mp4" type="video/mp4">
 </video>
 
-
 <div class="video-overlay"></div>
-
 <div class="video-glow"></div>
-
 
 
 <!-- =====================================================
      NAVBAR
 ===================================================== -->
 
-<header
-    class="navbar"
-    id="navbar"
->
+<header class="navbar" id="navbar">
 
 <div class="container nav-inner">
 
-
-<a
-    href="#home"
-    class="logo"
->
-    LUNA<span>.</span>
+<a href="#home" class="logo">
+LUNA<span>.</span>
 </a>
 
+<nav class="nav-links" id="navLinks">
 
-<nav
-    class="nav-links"
-    id="navLinks"
->
+<a href="#work">Work</a>
+<a href="#services">Services</a>
+<a href="#process">Process</a>
+<a href="#contact">Contact</a>
 
-<a href="#work">
-    Work
-</a>
-
-<a href="#build">
-    What We Build
-</a>
-
-<a href="#pricing">
-    Pricing
-</a>
-
-<a href="#process">
-    Process
-</a>
-
-<a href="#faq">
-    FAQ
-</a>
-
-<a
-    href="#contact"
-    class="nav-button"
->
-    Start a Project
+<a href="#contact" class="nav-button">
+Start a Project
 </a>
 
 </nav>
-
 
 <button
     class="menu"
@@ -2134,14 +856,12 @@ footer{
     type="button"
     aria-label="Open menu"
 >
-    ☰
+☰
 </button>
-
 
 </div>
 
 </header>
-
 
 
 <!-- =====================================================
@@ -2150,67 +870,43 @@ footer{
 
 <main>
 
+<!-- HERO -->
 
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
 <div class="container">
 
 <div class="hero-content animate-reveal">
 
-
 <div class="badge">
-    Premium websites for ambitious businesses
+Premium websites for local businesses
 </div>
 
-
 <h1>
-
-    Make your business
-
-    <span>
-        impossible to ignore.
-    </span>
-
+Make your business
+<span>impossible to ignore.</span>
 </h1>
 
-
 <p>
-
-    Luna creates modern, responsive websites
-    designed to make businesses look professional,
-    build trust and turn visitors into customers.
-
+Luna creates modern, responsive websites that help
+local businesses look professional, build trust and
+turn visitors into customers.
 </p>
-
 
 <div class="buttons">
 
-
-<a
-    href="#work"
-    class="btn primary"
->
-    Explore Our Work →
+<a href="#work" class="btn primary">
+Explore Our Work →
 </a>
 
-
 <a
-    href="#pricing"
-    class="btn secondary"
+href="mailto:satyamm28kr74@gmail.com?subject=Luna%20Website%20Enquiry"
+class="btn secondary"
 >
-    View Pricing
+Email Luna
 </a>
-
 
 </div>
-
 
 </div>
 
@@ -2219,31 +915,21 @@ footer{
 </section>
 
 
-
-<!-- =====================================================
-     TRUST
-===================================================== -->
+<!-- TRUST -->
 
 <div class="trust">
 
 <div class="container trust-inner">
 
 <span>Modern</span>
-
 <span>Responsive</span>
-
 <span>Fast</span>
-
 <span>Mobile-first</span>
-
-<span>Custom</span>
-
 <span>Professional</span>
 
 </div>
 
 </div>
-
 
 
 <!-- =====================================================
@@ -2254,566 +940,314 @@ footer{
 
 <div class="container">
 
-
 <div class="work-header animate-reveal">
 
 <div>
 
 <div class="label">
-    Selected work
+Selected work
 </div>
 
 <h2 class="section-title">
-    Built to stand out.
+Built to stand out.
 </h2>
 
 </div>
 
-
 <p class="section-copy">
-
-    Real website concepts showing how
-    Luna can be adapted to different
-    industries and businesses.
-
+One powerful design system, customized for different
+industries and businesses.
 </p>
 
 </div>
-
 
 
 <div class="projects">
 
-
-<!-- CAFE -->
+<!-- =================================================
+     CAFE
+================================================= -->
 
 <article class="project">
-
 
 <div class="project-image">
 
 <img
-    src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=90"
-    alt="Luna Cafe website"
-    loading="lazy"
+src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=90"
+alt="Luna Cafe website"
+loading="lazy"
 >
 
 <div class="overlay"></div>
 
 </div>
 
-
 <div class="project-content">
 
 <div class="category">
-    Hospitality
+Hospitality
 </div>
-
 
 <h3>
-    Luna Café
+Luna Café
 </h3>
 
-
 <p>
-
-    A stylish digital presence designed
-    for cafés, restaurants and hospitality brands.
-
+A stylish digital presence designed for cafés,
+restaurants and modern hospitality brands.
 </p>
 
-
-<div class="project-actions">
-
 <a
-    href="luna-cafe.html"
-    class="project-link"
+href="luna-cafe.html"
+class="project-link"
 >
-    View Café Demo →
+View Café Demo →
 </a>
-
-
-<a
-    href="#contact"
-    class="project-cta"
->
-    Get a website like this
-</a>
-
-</div>
-
 
 </div>
 
 </article>
 
 
-
-<!-- SALON -->
+<!-- =================================================
+     SALON
+================================================= -->
 
 <article class="project">
-
 
 <div class="project-image">
 
 <img
-    src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=90"
-    alt="Luna Salon website"
-    loading="lazy"
+src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=90"
+alt="Luna Salon website"
+loading="lazy"
 >
 
 <div class="overlay"></div>
 
 </div>
 
-
 <div class="project-content">
 
 <div class="category">
-    Beauty & Wellness
+Beauty & Wellness
 </div>
-
 
 <h3>
-    Luna Salon
+Luna Salon
 </h3>
 
-
 <p>
-
-    An elegant website concept designed
-    to showcase services, atmosphere and experience.
-
+An elegant website concept designed to showcase
+services, atmosphere and customer experience.
 </p>
 
-
-<div class="project-actions">
-
 <a
-    href="luna salon.html"
-    class="project-link"
+href="luna salon.html"
+class="project-link"
 >
-    View Salon Demo →
+View Salon Demo →
 </a>
-
-
-<a
-    href="#contact"
-    class="project-cta"
->
-    Get a website like this
-</a>
-
-</div>
-
 
 </div>
 
 </article>
 
 
-
-<!-- COACHING -->
+<!-- =================================================
+     COACHING
+================================================= -->
 
 <article class="project">
-
 
 <div class="project-image">
 
 <img
-    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=90"
-    alt="Luna Coaching website"
-    loading="lazy"
+src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=90"
+alt="Luna Coaching website"
+loading="lazy"
 >
 
 <div class="overlay"></div>
 
 </div>
 
-
 <div class="project-content">
 
 <div class="category">
-    Education
+Education
 </div>
-
 
 <h3>
-    Luna Coaching
+Luna Coaching
 </h3>
 
-
 <p>
-
-    A professional academic website
-    designed to present courses, programs
-    and student support.
-
+A professional academic website built to present
+courses, programs and student support.
 </p>
 
-
-<div class="project-actions">
-
 <a
-    href="luna-choaching.html"
-    class="project-link"
+href="luna-choaching.html"
+class="project-link"
 >
-    View Coaching Demo →
+View Coaching Demo →
 </a>
-
-
-<a
-    href="#contact"
-    class="project-cta"
->
-    Get a website like this
-</a>
-
-</div>
-
 
 </div>
 
 </article>
 
+html
+<!-- REAL ESTATE DEMO -->
+<article class="work-card animate-reveal">
 
+    <div class="work-image">
+        <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90"
+            alt="Premium real estate website"
+            loading="lazy"
+        >
 
-<!-- SCHOOL -->
+        <div class="work-badge">
+            Luxury Real Estate
+        </div>
+    </div>
+
+    <div class="work-content">
+
+        <div>
+            <p class="work-category">
+                Real Estate
+            </p>
+
+            <h3>
+                Premium Property Experience
+            </h3>
+
+            <p>
+                A cinematic real-estate website designed
+                for luxury properties, developers and
+                modern property agencies.
+            </p>
+        </div>
+
+        <a
+            href="luna-realestate.html"
+            class="work-link"
+            target="_blank"
+            rel="noopener"
+        >
+            View Demo →
+        </a>
+
+    </div>
+
+</article>
+```
+
+<!-- =================================================
+     SCHOOL
+================================================= -->
 
 <article class="project">
-
 
 <div class="project-image">
 
 <img
-    src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1400&q=90"
-    alt="Aurelia International School website"
-    loading="lazy"
+src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1400&q=90"
+alt="Aurelia International School website"
+loading="lazy"
 >
 
 <div class="overlay"></div>
 
 </div>
 
-
 <div class="project-content">
 
 <div class="category">
-    Education
+Education
 </div>
-
 
 <h3>
-    Aurelia International School
+Aurelia International School
 </h3>
 
-
 <p>
-
-    A modern school website concept
-    designed to showcase academics,
-    admissions and student life.
-
+A modern school website concept designed to showcase
+academics, admissions, activities and student life.
 </p>
 
-
-<div class="project-actions">
-
 <a
-    href="luna-school.html"
-    class="project-link"
+href="luna-school.html"
+class="project-link"
 >
-    View School Demo →
+View School Demo →
 </a>
-
-
-<a
-    href="#contact"
-    class="project-cta"
->
-    Get a website like this
-</a>
-
-</div>
-
 
 </div>
 
 </article>
 
 
-
-<!-- YOUR BUSINESS -->
+<!-- =================================================
+     YOUR BUSINESS
+================================================= -->
 
 <article class="project custom-project">
-
 
 <div class="project-image">
 
 <div class="custom-project-content">
 
-
 <div class="custom-star">
-    ✦
+✦
 </div>
-
 
 <h3>
-    Your Business
+Your Business
 </h3>
 
-
 <p>
-    The next Luna website could be yours.
+The next Luna website could be yours.
 </p>
 
-
 </div>
 
 </div>
-
 
 <div class="project-content">
 
-
 <div class="category">
-    Custom Design
+Custom Design
 </div>
-
 
 <h3>
-    Built around you.
+Built around you.
 </h3>
 
-
 <p>
-
-    Your branding, services, images and
-    business story — customized into
-    one polished website.
-
+Your branding, services, images and business story —
+all customized into one polished website.
 </p>
 
-
-<div class="project-actions">
-
 <a
-    href="#contact"
-    class="project-link"
+href="#contact"
+class="project-link"
 >
-    Start a Project →
+Start a Project →
 </a>
-
-</div>
-
 
 </div>
 
 </article>
 
-
 </div>
 
 </div>
 
 </section>
-
-
-
-<!-- =====================================================
-     WHAT WE BUILD
-===================================================== -->
-
-<section id="build">
-
-<div class="container">
-
-
-<div class="animate-reveal">
-
-<div class="label">
-    What we build
-</div>
-
-
-<h2 class="section-title">
-    A website for
-    <br>
-    your kind of business.
-</h2>
-
-
-<p class="section-copy">
-
-    Luna's design system can be customized
-    for different industries, brands and goals.
-
-</p>
-
-</div>
-
-
-
-<div class="build-grid">
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    ☕
-</div>
-
-<h3>
-    Cafés & Restaurants
-</h3>
-
-<p>
-    Menus, locations, galleries,
-    reservations and contact details.
-</p>
-
-</div>
-
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    ✂
-</div>
-
-<h3>
-    Salons & Beauty
-</h3>
-
-<p>
-    Services, pricing, galleries,
-    contact and appointment information.
-</p>
-
-</div>
-
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    🎓
-</div>
-
-<h3>
-    Coaching & Schools
-</h3>
-
-<p>
-    Courses, programs, admissions,
-    faculty and student information.
-</p>
-
-</div>
-
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    🏋
-</div>
-
-<h3>
-    Gyms & Fitness
-</h3>
-
-<p>
-    Programs, memberships, trainers,
-    facilities and enquiries.
-</p>
-
-</div>
-
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    🏠
-</div>
-
-<h3>
-    Real Estate
-</h3>
-
-<p>
-    Property showcases, listings,
-    galleries and enquiry forms.
-</p>
-
-</div>
-
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    🚀
-</div>
-
-<h3>
-    Startups
-</h3>
-
-<p>
-    Modern landing pages designed
-    to introduce your product or idea.
-</p>
-
-</div>
-
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    🛍
-</div>
-
-<h3>
-    Small Businesses
-</h3>
-
-<p>
-    Professional online presence
-    for growing local businesses.
-</p>
-
-</div>
-
-
-
-<div class="build-card animate-reveal">
-
-<div class="build-icon">
-    ✦
-</div>
-
-<h3>
-    Custom Projects
-</h3>
-
-<p>
-    Something different?
-    We'll build around your requirements.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
 
 
 <!-- =====================================================
@@ -2824,413 +1258,127 @@ footer{
 
 <div class="container">
 
-
 <div class="animate-reveal">
 
 <div class="label">
-    What you get
+What we do
 </div>
 
-
 <h2 class="section-title">
-    Everything you need
-    <br>
-    to look professional online.
+Everything you need
+<br>
+to look professional online.
 </h2>
 
-
 <p class="section-copy">
-
-    Beautiful websites without
-    unnecessary complexity.
-
+Beautiful websites without unnecessary complexity.
 </p>
 
 </div>
-
 
 
 <div class="services">
 
-
 <div class="service animate-reveal">
 
-<div class="number">
-    01
-</div>
+<div class="number">01</div>
 
 <h3>
-    Website Design
+Website Design
 </h3>
 
 <p>
-    A premium layout designed
-    around your business and customers.
+Premium layouts designed around your business and
+your customers.
 </p>
 
 </div>
 
 
-
 <div class="service animate-reveal">
 
-<div class="number">
-    02
-</div>
+<div class="number">02</div>
 
 <h3>
-    Mobile Responsive
+Mobile Responsive
 </h3>
 
 <p>
-    Your website looks great across
-    phones, tablets and desktop screens.
+Your website looks great across phones, tablets
+and desktop screens.
 </p>
 
 </div>
 
 
-
 <div class="service animate-reveal">
 
-<div class="number">
-    03
-</div>
+<div class="number">03</div>
 
 <h3>
-    Business Setup
+Business Setup
 </h3>
 
 <p>
-    Contact details, maps, opening hours,
-    services and essential information.
+Contact details, maps, opening hours, services
+and essential business information.
 </p>
 
 </div>
 
 
-
 <div class="service animate-reveal">
 
-<div class="number">
-    04
-</div>
+<div class="number">04</div>
 
 <h3>
-    Fast Performance
+Fast Performance
 </h3>
 
 <p>
-    Lightweight pages designed
-    to feel smooth and load quickly.
+Lightweight websites designed to load quickly
+and feel smooth.
 </p>
 
 </div>
 
 
-
 <div class="service animate-reveal">
 
-<div class="number">
-    05
-</div>
+<div class="number">05</div>
 
 <h3>
-    Custom Content
+Custom Content
 </h3>
 
 <p>
-    Your real business information,
-    photos, services and branding.
+Your real business information, photos, services
+and branding.
 </p>
 
 </div>
 
 
-
 <div class="service animate-reveal">
 
-<div class="number">
-    06
-</div>
+<div class="number">06</div>
 
 <h3>
-    Future Updates
+Future Updates
 </h3>
 
 <p>
-    Your website can be updated
-    as your business grows.
+Need changes later? Your website can grow with
+your business.
 </p>
 
 </div>
-
 
 </div>
 
 </div>
 
 </section>
-
-
-
-<!-- =====================================================
-     PRICING
-===================================================== -->
-
-<section id="pricing">
-
-<div class="container">
-
-
-<div class="animate-reveal">
-
-<div class="label">
-    Simple pricing
-</div>
-
-
-<h2 class="section-title">
-    Choose what fits.
-</h2>
-
-
-<p class="section-copy">
-
-    Start simple or go fully custom.
-    Every website is built around your business.
-
-</p>
-
-</div>
-
-
-
-<div class="pricing-grid">
-
-
-<!-- STARTER -->
-
-<div class="price-card animate-reveal">
-
-
-<div class="price-name">
-    Starter
-</div>
-
-
-<div class="price">
-    ₹4,500
-</div>
-
-
-<p class="price-description">
-
-    Perfect for small businesses
-    that need a professional online presence.
-
-</p>
-
-
-<ul class="features">
-
-<li>
-    One-page website
-</li>
-
-<li>
-    Custom design
-</li>
-
-<li>
-    Mobile responsive
-</li>
-
-<li>
-    Business information
-</li>
-
-<li>
-    Contact / WhatsApp button
-</li>
-
-<li>
-    Basic animations
-</li>
-
-<li>
-    Website deployment
-</li>
-
-</ul>
-
-
-<a
-    href="#contact"
-    class="btn secondary price-button"
->
-    Choose Starter
-</a>
-
-
-</div>
-
-
-
-<!-- BUSINESS -->
-
-<div class="price-card featured animate-reveal">
-
-
-<div class="popular">
-    Most Popular
-</div>
-
-
-<div class="price-name">
-    Business
-</div>
-
-
-<div class="price">
-    ₹8,999
-</div>
-
-
-<p class="price-description">
-
-    For businesses that want
-    a more complete professional website.
-
-</p>
-
-
-<ul class="features">
-
-<li>
-    Everything in Starter
-</li>
-
-<li>
-    Up to 5 sections/pages
-</li>
-
-<li>
-    Image gallery
-</li>
-
-<li>
-    Google Maps integration
-</li>
-
-<li>
-    Services / menu section
-</li>
-
-<li>
-    Contact form
-</li>
-
-<li>
-    Better animations
-</li>
-
-<li>
-    Basic SEO
-</li>
-
-<li>
-    2 revision rounds
-</li>
-
-</ul>
-
-
-<a
-    href="#contact"
-    class="btn primary price-button"
->
-    Choose Business
-</a>
-
-
-</div>
-
-
-
-<!-- PREMIUM -->
-
-<div class="price-card animate-reveal">
-
-
-<div class="price-name">
-    Premium
-</div>
-
-
-<div class="price">
-    ₹14,999
-</div>
-
-
-<p class="price-description">
-
-    For brands that want
-    a highly customized web presence.
-
-</p>
-
-
-<ul class="features">
-
-<li>
-    Everything in Business
-</li>
-
-<li>
-    Up to 8 pages
-</li>
-
-<li>
-    Custom visual direction
-</li>
-
-<li>
-    Advanced animations
-</li>
-
-<li>
-    More extensive customization
-</li>
-
-<li>
-    Priority revisions
-</li>
-
-<li>
-    Extra functionality where needed
-</li>
-
-</ul>
-
-
-<a
-    href="#contact"
-    class="btn secondary price-button"
->
-    Choose Premium
-</a>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
 
 
 <!-- =====================================================
@@ -3241,213 +1389,42 @@ footer{
 
 <div class="container process">
 
-
-<div class="animate-reveal">
-
-
-<div class="label">
-    Our process
-</div>
-
-
-<h2 class="section-title">
-    Simple from
-    start to finish.
-</h2>
-
-
-<p class="section-copy">
-
-    No complicated process.
-    Just a clear path from idea to launch.
-
-</p>
-
-
-</div>
-
-
-
-<div>
-
-
-<div class="process-item animate-reveal">
-
-<div class="process-number">
-    01
-</div>
-
-
-<div>
-
-<h3>
-    Tell us about your business
-</h3>
-
-
-<p>
-
-    Share your business name,
-    services, style, contact details
-    and goals.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="process-item animate-reveal">
-
-<div class="process-number">
-    02
-</div>
-
-
-<div>
-
-<h3>
-    We customize your website
-</h3>
-
-
-<p>
-
-    We adapt the design, content,
-    colours and images around your brand.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="process-item animate-reveal">
-
-<div class="process-number">
-    03
-</div>
-
-
-<div>
-
-<h3>
-    Review and refine
-</h3>
-
-
-<p>
-
-    You review the website and
-    request changes before launch.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="process-item animate-reveal">
-
-<div class="process-number">
-    04
-</div>
-
-
-<div>
-
-<h3>
-    Launch
-</h3>
-
-
-<p>
-
-    Your new website is ready
-    to share with your customers.
-
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FAQ
-===================================================== -->
-
-<section id="faq">
-
-<div class="container">
-
-
 <div class="animate-reveal">
 
 <div class="label">
-    FAQ
+Our process
 </div>
-
 
 <h2 class="section-title">
-    Questions?
+Simple from
+start to finish.
 </h2>
-
 
 <p class="section-copy">
-
-    A few things clients usually
-    want to know before starting.
-
+No complicated process. Just a clear path from
+idea to launch.
 </p>
 
 </div>
 
 
+<div>
 
-<div class="faq-container">
+<div class="process-item animate-reveal">
 
+<div class="process-number">
+01
+</div>
 
-<div class="faq-item animate-reveal">
+<div>
 
-
-<button
-    class="faq-question"
-    type="button"
->
-
-    How long does a website take?
-
-    <span class="faq-icon">
-        +
-    </span>
-
-</button>
-
-
-<div class="faq-answer">
+<h3>
+Tell us about your business
+</h3>
 
 <p>
-
-    Simple websites can usually be completed
-    quickly once the required content and
-    information are available. Larger custom
-    projects may take longer.
-
+Share your business name, services, style,
+contact details and goals.
 </p>
 
 </div>
@@ -3455,32 +1432,21 @@ footer{
 </div>
 
 
+<div class="process-item animate-reveal">
 
-<div class="faq-item animate-reveal">
+<div class="process-number">
+02
+</div>
 
+<div>
 
-<button
-    class="faq-question"
-    type="button"
->
-
-    Can the website be customized?
-
-    <span class="faq-icon">
-        +
-    </span>
-
-</button>
-
-
-<div class="faq-answer">
+<h3>
+We customize your website
+</h3>
 
 <p>
-
-    Yes. The business name, colours, images,
-    text, services, layout and other details
-    can be customized around your brand.
-
+We adapt the design, content, colours and
+images around your brand.
 </p>
 
 </div>
@@ -3488,32 +1454,21 @@ footer{
 </div>
 
 
+<div class="process-item animate-reveal">
 
-<div class="faq-item animate-reveal">
+<div class="process-number">
+03
+</div>
 
+<div>
 
-<button
-    class="faq-question"
-    type="button"
->
-
-    Will it work on mobile?
-
-    <span class="faq-icon">
-        +
-    </span>
-
-</button>
-
-
-<div class="faq-answer">
+<h3>
+Review and refine
+</h3>
 
 <p>
-
-    Yes. Luna websites are designed to be
-    responsive across phones, tablets and
-    desktop screens.
-
+You review the website and request changes
+before launch.
 </p>
 
 </div>
@@ -3521,73 +1476,26 @@ footer{
 </div>
 
 
+<div class="process-item animate-reveal">
 
-<div class="faq-item animate-reveal">
+<div class="process-number">
+04
+</div>
 
+<div>
 
-<button
-    class="faq-question"
-    type="button"
->
-
-    Can I request changes?
-
-    <span class="faq-icon">
-        +
-    </span>
-
-</button>
-
-
-<div class="faq-answer">
+<h3>
+Launch
+</h3>
 
 <p>
-
-    Yes. The package you choose determines
-    the included revision rounds. Additional
-    changes can also be discussed for custom
-    projects.
-
+Your new website is ready to share with
+your customers.
 </p>
 
 </div>
 
 </div>
-
-
-
-<div class="faq-item animate-reveal">
-
-
-<button
-    class="faq-question"
-    type="button"
->
-
-    Can you build something not shown here?
-
-    <span class="faq-icon">
-        +
-    </span>
-
-</button>
-
-
-<div class="faq-answer">
-
-<p>
-
-    Absolutely. The examples are demonstrations
-    of the design style. Custom websites can be
-    discussed based on your business and requirements.
-
-</p>
-
-</div>
-
-</div>
-
-
 
 </div>
 
@@ -3596,267 +1504,51 @@ footer{
 </section>
 
 
-
 <!-- =====================================================
-     CONTACT
+     CTA
 ===================================================== -->
 
-<section id="contact">
-
-<div class="container contact-grid">
-
-
-<div class="contact-info animate-reveal">
-
-
-<div class="label">
-    Start a project
-</div>
-
-
-<h2>
-    Let's build your
-    <br>
-    website.
-</h2>
-
-
-<p>
-
-    Tell us a little about your business
-    and what you're looking for. We'll
-    get back to you with the next steps.
-
-</p>
-
-
-<a
-    href="mailto:satyamm28kr74@gmail.com?subject=Luna%20Website%20Enquiry"
-    class="contact-email"
->
-    satyamm28kr74@gmail.com
-</a>
-
-
-</div>
-
-
-
-<form
-    class="contact-form animate-reveal"
-    id="contactForm"
->
-
-
-<div class="form-row">
-
-
-<div class="form-group">
-
-<label for="name">
-    Your Name
-</label>
-
-<input
-    type="text"
-    id="name"
-    name="name"
-    placeholder="Your name"
-    required
->
-
-</div>
-
-
-
-<div class="form-group">
-
-<label for="business">
-    Business Name
-</label>
-
-<input
-    type="text"
-    id="business"
-    name="business"
-    placeholder="Your business"
-    required
->
-
-</div>
-
-
-</div>
-
-
-
-<div class="form-row">
-
-
-<div class="form-group">
-
-<label for="email">
-    Email
-</label>
-
-<input
-    type="email"
-    id="email"
-    name="email"
-    placeholder="you@example.com"
-    required
->
-
-</div>
-
-
-
-<div class="form-group">
-
-<label for="budget">
-    Budget
-</label>
-
-<select
-    id="budget"
-    name="budget"
->
-
-<option value="Starter — ₹4,500">
-    Starter — ₹4,500
-</option>
-
-<option value="Business — ₹8,999">
-    Business — ₹8,999
-</option>
-
-<option value="Premium — ₹14,999">
-    Premium — ₹14,999
-</option>
-
-<option value="Custom">
-    Custom Project
-</option>
-
-</select>
-
-</div>
-
-
-</div>
-
-
-
-<div class="form-group">
-
-<label for="message">
-    Tell us about your project
-</label>
-
-<textarea
-    id="message"
-    name="message"
-    placeholder="What does your business do and what kind of website are you looking for?"
-    required
-></textarea>
-
-</div>
-
-
-
-<button
-    type="submit"
-    class="btn primary"
-    style="width:100%;border:0;"
->
-    Send Project Enquiry →
-</button>
-
-
-<div
-    class="form-success"
-    id="formSuccess"
->
-    Opening your email app...
-</div>
-
-
-<p class="form-note">
-
-    Your enquiry will open in your email app
-    so you can send it directly to Luna.
-
-</p>
-
-
-</form>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FINAL CTA
-===================================================== -->
-
-<section class="cta">
+<section class="cta" id="contact">
 
 <div class="container animate-reveal">
 
-
 <div class="label">
-    Have a business?
+Have a business?
 </div>
 
-
 <h2>
-
-    Your business deserves
-    a better first impression.
-
+Let's build something
+customers remember.
 </h2>
 
-
 <p>
-
-    Tell us what your business does
-    and let's turn it into a website
-    customers remember.
-
+Tell us what your business does and we'll show you
+what it could look like online.
 </p>
-
 
 <div class="buttons">
 
-
 <a
-    href="#contact"
-    class="btn primary"
+href="mailto:satyamm28kr74@gmail.com?subject=Luna%20Website%20Enquiry"
+class="btn primary"
 >
-    Start a Project →
+Start a Project →
 </a>
 
-
 <a
-    href="#pricing"
-    class="btn secondary"
+href="mailto:satyamm28kr74@gmail.com"
+class="btn secondary"
 >
-    View Pricing
+satyamm28kr74@gmail.com
 </a>
-
 
 </div>
-
 
 </div>
 
 </section>
 
-
 </main>
-
 
 
 <!-- =====================================================
@@ -3867,72 +1559,39 @@ footer{
 
 <div class="container footer-inner">
 
-
 <div>
 
 <div class="logo">
-    LUNA<span>.</span>
+LUNA<span>.</span>
 </div>
-
 
 <div class="footer-copy">
-    Premium websites for ambitious businesses.
+Premium websites for ambitious businesses.
 </div>
 
 </div>
-
 
 
 <div class="footer-links">
 
-<a href="#work">
-    Work
-</a>
-
-<a href="#build">
-    What We Build
-</a>
-
-<a href="#pricing">
-    Pricing
-</a>
-
-<a href="#contact">
-    Contact
-</a>
-
-<a
-    href="https://github.com/sattuu62/luna"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="github-link"
->
-    GitHub ↗
-</a>
+<a href="#work">Work</a>
+<a href="#services">Services</a>
+<a href="#process">Process</a>
+<a href="#contact">Contact</a>
 
 </div>
-
 
 
 <div class="footer-copy">
-
 © <span id="year"></span> Luna.
-
 </div>
-
 
 </div>
 
 </footer>
 
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
-
 
 /* =====================================================
    NAVBAR
@@ -3941,24 +1600,15 @@ footer{
 const navbar =
 document.getElementById("navbar");
 
+window.addEventListener("scroll", function(){
 
-window.addEventListener(
-    "scroll",
-    function(){
-
-        if(window.scrollY > 40){
-
-            navbar.classList.add("scrolled");
-
-        }else{
-
-            navbar.classList.remove("scrolled");
-
-        }
-
+    if(window.scrollY > 40){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
     }
-);
 
+});
 
 
 /* =====================================================
@@ -3968,46 +1618,33 @@ window.addEventListener(
 const menuButton =
 document.getElementById("menuButton");
 
-
 const navLinks =
 document.getElementById("navLinks");
 
+menuButton.addEventListener("click", function(){
 
-menuButton.addEventListener(
-    "click",
-    function(){
+    navLinks.classList.toggle("open");
 
-        navLinks.classList.toggle("open");
+    menuButton.textContent =
+        navLinks.classList.contains("open")
+        ? "×"
+        : "☰";
 
-        menuButton.textContent =
-            navLinks.classList.contains("open")
-            ? "×"
-            : "☰";
-
-    }
-);
+});
 
 
+document.querySelectorAll(".nav-links a")
+.forEach(function(link){
 
-document
-.querySelectorAll(".nav-links a")
-.forEach(
-    function(link){
+    link.addEventListener("click", function(){
 
-        link.addEventListener(
-            "click",
-            function(){
+        navLinks.classList.remove("open");
 
-                navLinks.classList.remove("open");
+        menuButton.textContent = "☰";
 
-                menuButton.textContent = "☰";
+    });
 
-            }
-        );
-
-    }
-);
-
+});
 
 
 /* =====================================================
@@ -4015,273 +1652,84 @@ document
 ===================================================== */
 
 const revealObserver =
+new IntersectionObserver(function(entries, observer){
 
-new IntersectionObserver(
-    function(entries, observer){
+    entries.forEach(function(entry){
 
-        entries.forEach(
-            function(entry){
+        if(entry.isIntersecting){
 
-                if(entry.isIntersecting){
+            entry.target.classList.add("show");
 
-                    entry.target.classList.add("show");
+            observer.unobserve(entry.target);
 
-                    observer.unobserve(
-                        entry.target
-                    );
+        }
 
-                }
+    });
 
-            }
-        );
-
-    },
-    {
-        threshold:.10
-    }
-);
-
+},{
+    threshold:.12
+});
 
 
 document
 .querySelectorAll(".animate-reveal")
-.forEach(
-    function(element){
+.forEach(function(element){
 
-        revealObserver.observe(element);
+    revealObserver.observe(element);
 
-    }
-);
-
+});
 
 
 /* =====================================================
    YEAR
 ===================================================== */
 
-document.getElementById("year")
-.textContent =
+document.getElementById("year").textContent =
 new Date().getFullYear();
 
 
-
 /* =====================================================
-   FAQ
-===================================================== */
-
-document
-.querySelectorAll(".faq-question")
-.forEach(
-    function(button){
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                const item =
-                    button.parentElement;
-
-                const isActive =
-                    item.classList.contains("active");
-
-
-                document
-                .querySelectorAll(".faq-item")
-                .forEach(
-                    function(otherItem){
-
-                        otherItem
-                        .classList
-                        .remove("active");
-
-                    }
-                );
-
-
-                if(!isActive){
-
-                    item.classList.add("active");
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =====================================================
-   CONTACT FORM
-===================================================== */
-
-const contactForm =
-document.getElementById("contactForm");
-
-
-const formSuccess =
-document.getElementById("formSuccess");
-
-
-contactForm.addEventListener(
-    "submit",
-    function(event){
-
-        event.preventDefault();
-
-
-        const name =
-            document.getElementById("name")
-            .value
-            .trim();
-
-
-        const business =
-            document.getElementById("business")
-            .value
-            .trim();
-
-
-        const email =
-            document.getElementById("email")
-            .value
-            .trim();
-
-
-        const budget =
-            document.getElementById("budget")
-            .value;
-
-
-        const message =
-            document.getElementById("message")
-            .value
-            .trim();
-
-
-        if(
-            !name ||
-            !business ||
-            !email ||
-            !message
-        ){
-
-            return;
-
-        }
-
-
-        const subject =
-            encodeURIComponent(
-                "Luna Website Enquiry — " +
-                business
-            );
-
-
-        const body =
-            encodeURIComponent(
-
-                "Hello Luna,\n\n" +
-
-                "Name: " +
-                name +
-                "\n" +
-
-                "Business: " +
-                business +
-                "\n" +
-
-                "Email: " +
-                email +
-                "\n" +
-
-                "Budget: " +
-                budget +
-                "\n\n" +
-
-                "Project details:\n" +
-                message +
-
-                "\n\nThank you."
-
-            );
-
-
-        formSuccess.style.display =
-            "block";
-
-
-        window.location.href =
-            "mailto:satyamm28kr74@gmail.com" +
-            "?subject=" +
-            subject +
-            "&body=" +
-            body;
-
-
-    }
-);
-
-
-
-/* =====================================================
-   BACKGROUND VIDEO
+   VIDEO
 ===================================================== */
 
 const backgroundVideo =
-document.querySelector(
-    ".background-video"
-);
+document.querySelector(".background-video");
 
 
 if(backgroundVideo){
 
+    backgroundVideo.addEventListener("error", function(){
 
-    backgroundVideo.addEventListener(
-        "error",
-        function(){
+        backgroundVideo.style.display = "none";
 
-            backgroundVideo.style.display =
-                "none";
-
-        }
-    );
+    });
 
 
-    window.addEventListener(
-        "load",
-        function(){
+    window.addEventListener("load", function(){
 
-            const playPromise =
-                backgroundVideo.play();
+        const playPromise =
+            backgroundVideo.play();
 
+        if(playPromise !== undefined){
 
-            if(
-                playPromise !== undefined
-            ){
+            playPromise.catch(function(){
 
-                playPromise.catch(
-                    function(){
+                /*
+                 Video autoplay can be blocked by
+                 some browsers. The website itself
+                 continues working normally.
+                */
 
-                        /*
-                        Some browsers may block
-                        autoplay. The rest of the
-                        website continues normally.
-                        */
-
-                    }
-                );
-
-            }
+            });
 
         }
-    );
+
+    });
 
 }
-
 
 </script>
 
 </body>
 </html>
+```
