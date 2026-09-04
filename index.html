@@ -1,19 +1,23 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Luna — Premium websites for ambitious local businesses.">
-<title>Luna — Premium Websites</title>
+
+<meta name="description" content="Luna by Satyam — modern, responsive websites for small businesses, creators and ambitious brands.">
+<meta name="theme-color" content="#07070b">
+
+<title>Luna — Websites That Make Businesses Stand Out</title>
 
 <style>
 :root{
     --bg:#07070b;
     --card:rgba(17,17,24,.78);
-    --card2:rgba(22,22,30,.88);
+    --card2:rgba(23,23,31,.92);
     --text:#f7f7f7;
     --muted:#a4a4af;
+    --soft:#777782;
     --line:rgba(255,255,255,.11);
     --max:1180px;
 }
@@ -36,8 +40,31 @@ body{
     overflow-x:hidden;
 }
 
+body.menu-open{
+    overflow:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:var(--max);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
 /* =====================================================
-   BACKGROUND VIDEO
+   BACKGROUND
 ===================================================== */
 
 .background-video{
@@ -60,9 +87,9 @@ body{
     background:
         linear-gradient(
             180deg,
-            rgba(7,7,11,.78),
-            rgba(7,7,11,.48) 45%,
-            rgba(7,7,11,.88)
+            rgba(7,7,11,.82),
+            rgba(7,7,11,.50) 45%,
+            rgba(7,7,11,.92)
         );
 }
 
@@ -74,29 +101,10 @@ body{
 
     background:
         radial-gradient(
-            circle at 50% 15%,
-            rgba(255,255,255,.09),
+            circle at 50% 12%,
+            rgba(255,255,255,.10),
             transparent 38%
         );
-}
-
-/* =====================================================
-   GENERAL
-===================================================== */
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-.container{
-    width:92%;
-    max-width:var(--max);
-    margin:auto;
-}
-
-section{
-    padding:110px 0;
 }
 
 /* =====================================================
@@ -114,7 +122,7 @@ section{
 }
 
 .navbar.scrolled{
-    background:rgba(7,7,11,.88);
+    background:rgba(7,7,11,.90);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
     border-bottom:1px solid var(--line);
@@ -146,7 +154,7 @@ section{
 .nav-links a{
     color:var(--muted);
     font-size:14px;
-    transition:.25s;
+    transition:.25s ease;
 }
 
 .nav-links a:hover{
@@ -170,7 +178,7 @@ section{
     width:44px;
     height:44px;
     cursor:pointer;
-    font-size:18px;
+    font-size:19px;
 }
 
 /* =====================================================
@@ -182,17 +190,17 @@ section{
     display:flex;
     align-items:center;
     text-align:center;
-    padding:140px 0 100px;
+    padding:150px 0 100px;
     position:relative;
 }
 
 .hero:before{
     content:"";
     position:absolute;
-    width:650px;
-    height:650px;
+    width:680px;
+    height:680px;
     left:50%;
-    top:10%;
+    top:5%;
     transform:translateX(-50%);
 
     background:
@@ -216,6 +224,7 @@ section{
     display:inline-flex;
     align-items:center;
     gap:9px;
+
     padding:8px 15px;
 
     border:1px solid var(--line);
@@ -228,6 +237,7 @@ section{
     color:#ccc;
     font-size:12px;
     font-weight:bold;
+
     margin-bottom:25px;
 }
 
@@ -241,12 +251,12 @@ section{
 }
 
 .hero h1{
-    font-size:clamp(55px,8vw,115px);
-    line-height:.9;
+    font-size:clamp(52px,8vw,112px);
+    line-height:.90;
     letter-spacing:-7px;
 
     text-shadow:
-        0 10px 45px rgba(0,0,0,.5);
+        0 10px 45px rgba(0,0,0,.55);
 }
 
 .hero h1 span{
@@ -255,8 +265,9 @@ section{
 }
 
 .hero p{
-    max-width:650px;
+    max-width:680px;
     margin:30px auto 0;
+
     color:var(--muted);
     font-size:17px;
 }
@@ -264,16 +275,23 @@ section{
 .buttons{
     display:flex;
     justify-content:center;
+    align-items:center;
     gap:13px;
     flex-wrap:wrap;
     margin-top:35px;
 }
 
 .btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
     padding:15px 24px;
+
     border-radius:30px;
     font-weight:bold;
-    transition:.3s;
+
+    transition:.3s ease;
 }
 
 .primary{
@@ -300,6 +318,12 @@ section{
     background:rgba(255,255,255,.08);
 }
 
+.hero-note{
+    margin-top:18px;
+    color:#666671;
+    font-size:12px;
+}
+
 /* =====================================================
    TRUST
 ===================================================== */
@@ -308,7 +332,7 @@ section{
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
 
-    background:rgba(7,7,11,.4);
+    background:rgba(7,7,11,.45);
 
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
@@ -329,7 +353,7 @@ section{
 }
 
 /* =====================================================
-   SECTIONS
+   GENERAL SECTIONS
 ===================================================== */
 
 .label{
@@ -349,7 +373,7 @@ section{
 
 .section-copy{
     color:var(--muted);
-    max-width:600px;
+    max-width:620px;
     margin-top:17px;
 }
 
@@ -387,23 +411,16 @@ section{
         transform .4s ease,
         border-color .4s ease,
         background .4s ease;
-
-    /* IMPORTANT:
-       Cards are visible by default.
-       JavaScript only adds animation.
-    */
-    opacity:1;
-    transform:none;
 }
 
 .project:hover{
     transform:translateY(-8px);
     border-color:rgba(255,255,255,.25);
-    background:rgba(17,17,24,.9);
+    background:rgba(17,17,24,.92);
 }
 
 .project-image{
-    height:390px;
+    height:360px;
     overflow:hidden;
     position:relative;
     background:#111118;
@@ -431,7 +448,7 @@ section{
 
     background:
         linear-gradient(
-            transparent 38%,
+            transparent 35%,
             rgba(0,0,0,.78)
         );
 }
@@ -471,7 +488,7 @@ section{
 }
 
 /* =====================================================
-   YOUR BUSINESS CARD
+   CUSTOM BUSINESS CARD
 ===================================================== */
 
 .custom-project{
@@ -481,7 +498,7 @@ section{
             rgba(255,255,255,.09),
             transparent 65%
         ),
-        rgba(17,17,24,.7);
+        rgba(17,17,24,.72);
 }
 
 .custom-project .project-image{
@@ -529,7 +546,7 @@ section{
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
 
-    transition:.3s;
+    transition:.3s ease;
 }
 
 .service:hover{
@@ -553,6 +570,78 @@ section{
     color:var(--muted);
     font-size:14px;
     margin-top:9px;
+}
+
+/* =====================================================
+   ABOUT / CREDIBILITY
+===================================================== */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:70px;
+    align-items:start;
+}
+
+.about-card{
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:35px;
+
+    background:var(--card);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+}
+
+.about-mark{
+    font-size:55px;
+    font-weight:900;
+    letter-spacing:-4px;
+}
+
+.about-card h3{
+    margin-top:15px;
+    font-size:24px;
+}
+
+.about-card p{
+    color:var(--muted);
+    font-size:14px;
+    margin-top:10px;
+}
+
+.about-content p{
+    color:var(--muted);
+    margin-top:18px;
+    max-width:650px;
+}
+
+.about-points{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:30px;
+}
+
+.about-point{
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+
+    background:rgba(255,255,255,.035);
+}
+
+.about-point strong{
+    display:block;
+    font-size:14px;
+}
+
+.about-point span{
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:4px;
 }
 
 /* =====================================================
@@ -595,6 +684,62 @@ section{
 }
 
 /* =====================================================
+   OFFER
+===================================================== */
+
+.offer{
+    text-align:center;
+}
+
+.offer-box{
+    max-width:850px;
+    margin:45px auto 0;
+
+    padding:45px 35px;
+
+    border:1px solid var(--line);
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,255,255,.10),
+            transparent 55%
+        ),
+        var(--card);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+}
+
+.offer-box h3{
+    font-size:34px;
+}
+
+.offer-box p{
+    color:var(--muted);
+    max-width:600px;
+    margin:12px auto 0;
+}
+
+.offer-list{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:25px;
+}
+
+.offer-list span{
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:8px 13px;
+    color:#bbb;
+    font-size:12px;
+    background:rgba(255,255,255,.035);
+}
+
+/* =====================================================
    CTA
 ===================================================== */
 
@@ -612,7 +757,7 @@ section{
 }
 
 .cta p{
-    max-width:570px;
+    max-width:600px;
     margin:22px auto 0;
     color:var(--muted);
 }
@@ -624,7 +769,7 @@ section{
 footer{
     border-top:1px solid var(--line);
 
-    background:rgba(5,5,9,.55);
+    background:rgba(5,5,9,.60);
 
     backdrop-filter:blur(15px);
     -webkit-backdrop-filter:blur(15px);
@@ -657,18 +802,13 @@ footer{
 }
 
 /* =====================================================
-   REVEAL ANIMATION
+   REVEAL
 ===================================================== */
-
-/*
-   Only elements with .animate-reveal are hidden.
-   Project cards themselves remain visible even if
-   JavaScript fails.
-*/
 
 .animate-reveal{
     opacity:0;
     transform:translateY(30px);
+
     transition:
         opacity .8s ease,
         transform .8s ease;
@@ -693,7 +833,8 @@ footer{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .process{
+    .process,
+    .about-grid{
         grid-template-columns:1fr;
         gap:50px;
     }
@@ -715,7 +856,7 @@ footer{
         align-items:stretch;
         gap:5px;
 
-        background:rgba(17,17,24,.96);
+        background:rgba(17,17,24,.97);
 
         border:1px solid var(--line);
         border-radius:20px;
@@ -744,8 +885,13 @@ footer{
         letter-spacing:-4px;
     }
 
+    .hero p{
+        font-size:15px;
+    }
+
     .trust-inner{
         gap:18px;
+        text-align:center;
     }
 
     section{
@@ -768,6 +914,18 @@ footer{
         height:300px;
     }
 
+    .about-points{
+        grid-template-columns:1fr;
+    }
+
+    .offer-box{
+        padding:35px 22px;
+    }
+
+    .offer-box h3{
+        font-size:28px;
+    }
+
     .footer-inner{
         flex-direction:column;
         align-items:flex-start;
@@ -784,7 +942,6 @@ footer{
         scroll-behavior:auto;
     }
 
-    .reveal,
     .animate-reveal{
         opacity:1;
         transform:none;
@@ -798,32 +955,37 @@ footer{
     }
 }
 </style>
+
 </head>
 
 <body>
 
 <!-- =====================================================
-     LIVE BACKGROUND VIDEO
-
-     Put your video here:
+     BACKGROUND VIDEO
+     
+     Put your video at:
      assets/luna-bg.mp4
 ===================================================== -->
 
 <video
-    class="background-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    aria-hidden="true"
+class="background-video"
+autoplay
+muted
+loop
+playsinline
+preload="metadata"
+aria-hidden="true"
+
 >
-    <source src="assets/luna-bg.mp4" type="video/mp4">
+
+```
+<source src="assets/luna-bg.mp4" type="video/mp4">
+```
+
 </video>
 
 <div class="video-overlay"></div>
 <div class="video-glow"></div>
-
 
 <!-- =====================================================
      NAVBAR
@@ -833,36 +995,38 @@ footer{
 
 <div class="container nav-inner">
 
-<a href="#home" class="logo">
+<a href="#home" class="logo" aria-label="Luna home">
 LUNA<span>.</span>
 </a>
 
 <nav class="nav-links" id="navLinks">
 
-<a href="#work">Work</a>
-<a href="#services">Services</a>
-<a href="#process">Process</a>
-<a href="#contact">Contact</a>
+<a href="#work">Work</a> <a href="#services">Services</a> <a href="#about">About</a> <a href="#process">Process</a> <a href="#contact">Contact</a>
 
-<a href="#contact" class="nav-button">
-Start a Project
-</a>
+<a
+href="#contact"
+class="nav-button"
+
+>
+
+Start a Project </a>
 
 </nav>
 
 <button
-    class="menu"
-    id="menuButton"
-    type="button"
-    aria-label="Open menu"
+class="menu"
+id="menuButton"
+type="button"
+aria-label="Open menu"
+aria-expanded="false"
+
 >
-☰
-</button>
+
+☰ </button>
 
 </div>
 
 </header>
-
 
 <!-- =====================================================
      MAIN
@@ -870,7 +1034,9 @@ Start a Project
 
 <main>
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="home">
 
@@ -879,7 +1045,7 @@ Start a Project
 <div class="hero-content animate-reveal">
 
 <div class="badge">
-Premium websites for local businesses
+Modern websites for ambitious businesses
 </div>
 
 <h1>
@@ -888,24 +1054,33 @@ Make your business
 </h1>
 
 <p>
-Luna creates modern, responsive websites that help
-local businesses look professional, build trust and
-turn visitors into customers.
+I build modern, responsive websites for small businesses,
+creators and growing brands — designed to look professional,
+build trust and turn visitors into customers.
 </p>
 
 <div class="buttons">
 
-<a href="#work" class="btn primary">
-Explore Our Work →
-</a>
+<a
+href="#work"
+class="btn primary"
+
+>
+
+Explore My Work → </a>
 
 <a
-href="mailto:satyamm28kr74@gmail.com?subject=Luna%20Website%20Enquiry"
+href="#contact"
 class="btn secondary"
->
-Email Luna
-</a>
 
+>
+
+Start a Project </a>
+
+</div>
+
+<div class="hero-note">
+Designed & built by Satyam
 </div>
 
 </div>
@@ -914,23 +1089,19 @@ Email Luna
 
 </section>
 
-
-<!-- TRUST -->
+<!-- =====================================================
+     TRUST
+===================================================== -->
 
 <div class="trust">
 
 <div class="container trust-inner">
 
-<span>Modern</span>
-<span>Responsive</span>
-<span>Fast</span>
-<span>Mobile-first</span>
-<span>Professional</span>
+<span>Modern</span> <span>Responsive</span> <span>Fast</span> <span>Mobile-first</span> <span>Custom</span>
 
 </div>
 
 </div>
-
 
 <!-- =====================================================
      WORK
@@ -955,27 +1126,25 @@ Built to stand out.
 </div>
 
 <p class="section-copy">
-One powerful design system, customized for different
-industries and businesses.
+A reusable design system adapted for different industries,
+businesses and brands.
 </p>
 
 </div>
 
-
 <div class="projects">
 
-<!-- =================================================
-     CAFE
-================================================= -->
+<!-- CAFE -->
 
-<article class="project">
+<article class="project animate-reveal">
 
 <div class="project-image">
 
 <img
 src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1400&q=90"
-alt="Luna Cafe website"
+alt="Luna Cafe website concept"
 loading="lazy"
+
 >
 
 <div class="overlay"></div>
@@ -1000,27 +1169,26 @@ restaurants and modern hospitality brands.
 <a
 href="luna-cafe.html"
 class="project-link"
+
 >
-View Café Demo →
-</a>
+
+View Café Demo → </a>
 
 </div>
 
 </article>
 
+<!-- SALON -->
 
-<!-- =================================================
-     SALON
-================================================= -->
-
-<article class="project">
+<article class="project animate-reveal">
 
 <div class="project-image">
 
 <img
 src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=90"
-alt="Luna Salon website"
+alt="Luna Salon website concept"
 loading="lazy"
+
 >
 
 <div class="overlay"></div>
@@ -1045,27 +1213,26 @@ services, atmosphere and customer experience.
 <a
 href="luna salon.html"
 class="project-link"
+
 >
-View Salon Demo →
-</a>
+
+View Salon Demo → </a>
 
 </div>
 
 </article>
 
+<!-- COACHING -->
 
-<!-- =================================================
-     COACHING
-================================================= -->
-
-<article class="project">
+<article class="project animate-reveal">
 
 <div class="project-image">
 
 <img
 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=90"
-alt="Luna Coaching website"
+alt="Luna Coaching website concept"
 loading="lazy"
+
 >
 
 <div class="overlay"></div>
@@ -1090,74 +1257,72 @@ courses, programs and student support.
 <a
 href="luna-choaching.html"
 class="project-link"
+
 >
-View Coaching Demo →
-</a>
+
+View Coaching Demo → </a>
 
 </div>
 
 </article>
 
-html
-<!-- REAL ESTATE DEMO -->
-<article class="work-card animate-reveal">
+<!-- REAL ESTATE -->
 
-    <div class="work-image">
-        <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90"
-            alt="Premium real estate website"
-            loading="lazy"
-        >
+<article class="project animate-reveal">
 
-        <div class="work-badge">
-            Luxury Real Estate
-        </div>
-    </div>
+<div class="project-image">
 
-    <div class="work-content">
+<img
+src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90"
+alt="Premium real estate website concept"
+loading="lazy"
 
-        <div>
-            <p class="work-category">
-                Real Estate
-            </p>
+>
 
-            <h3>
-                Premium Property Experience
-            </h3>
+<div class="overlay"></div>
 
-            <p>
-                A cinematic real-estate website designed
-                for luxury properties, developers and
-                modern property agencies.
-            </p>
-        </div>
+</div>
 
-        <a
-            href="luna-realestate.html"
-            class="work-link"
-            target="_blank"
-            rel="noopener"
-        >
-            View Demo →
-        </a>
+<div class="project-content">
 
-    </div>
+<div class="category">
+Real Estate
+</div>
+
+<h3>
+Premium Property Experience
+</h3>
+
+<p>
+A cinematic property website concept for luxury
+properties, developers and modern agencies.
+</p>
+
+<a
+href="luna-realestate.html"
+class="project-link"
+target="_blank"
+rel="noopener"
+
+>
+
+View Real Estate Demo → </a>
+
+</div>
 
 </article>
-```
 
-<!-- =================================================
-     SCHOOL
-================================================= -->
+<!-- SCHOOL -->
 
-<article class="project">
+<article class="project animate-reveal">
 
 <div class="project-image">
 
 <img
 src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1400&q=90"
-alt="Aurelia International School website"
+alt="Aurelia International School website concept"
 loading="lazy"
+
 >
 
 <div class="overlay"></div>
@@ -1182,20 +1347,64 @@ academics, admissions, activities and student life.
 <a
 href="luna-school.html"
 class="project-link"
+
 >
-View School Demo →
-</a>
+
+View School Demo → </a>
 
 </div>
 
 </article>
 
+<!-- STUDYMATE -->
 
-<!-- =================================================
-     YOUR BUSINESS
-================================================= -->
+<article class="project animate-reveal">
 
-<article class="project custom-project">
+<div class="project-image">
+
+<img
+src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=90"
+alt="StudyMate AI project"
+loading="lazy"
+
+>
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="project-content">
+
+<div class="category">
+AI / EdTech
+</div>
+
+<h3>
+StudyMate AI
+</h3>
+
+<p>
+An AI-powered study assistant built to help students
+summarize notes, practice questions and plan their studies.
+</p>
+
+<a
+href="https://studymate-ai-4dp8.onrender.com"
+class="project-link"
+target="_blank"
+rel="noopener"
+
+>
+
+Visit Live Project → </a>
+
+</div>
+
+</article>
+
+<!-- CUSTOM -->
+
+<article class="project custom-project animate-reveal">
 
 <div class="project-image">
 
@@ -1220,7 +1429,7 @@ The next Luna website could be yours.
 <div class="project-content">
 
 <div class="category">
-Custom Design
+Custom Website
 </div>
 
 <h3>
@@ -1235,9 +1444,10 @@ all customized into one polished website.
 <a
 href="#contact"
 class="project-link"
+
 >
-Start a Project →
-</a>
+
+Start a Project → </a>
 
 </div>
 
@@ -1248,7 +1458,6 @@ Start a Project →
 </div>
 
 </section>
-
 
 <!-- =====================================================
      SERVICES
@@ -1261,7 +1470,7 @@ Start a Project →
 <div class="animate-reveal">
 
 <div class="label">
-What we do
+What I build
 </div>
 
 <h2 class="section-title">
@@ -1276,7 +1485,6 @@ Beautiful websites without unnecessary complexity.
 
 </div>
 
-
 <div class="services">
 
 <div class="service animate-reveal">
@@ -1288,12 +1496,11 @@ Website Design
 </h3>
 
 <p>
-Premium layouts designed around your business and
-your customers.
+A clean visual identity and layout designed around
+your business and customers.
 </p>
 
 </div>
-
 
 <div class="service animate-reveal">
 
@@ -1304,28 +1511,26 @@ Mobile Responsive
 </h3>
 
 <p>
-Your website looks great across phones, tablets
-and desktop screens.
+Your website works beautifully across phones,
+tablets and desktop screens.
 </p>
 
 </div>
-
 
 <div class="service animate-reveal">
 
 <div class="number">03</div>
 
 <h3>
-Business Setup
+Business Information
 </h3>
 
 <p>
-Contact details, maps, opening hours, services
-and essential business information.
+Services, contact details, opening hours, locations
+and other essential information.
 </p>
 
 </div>
-
 
 <div class="service animate-reveal">
 
@@ -1336,12 +1541,11 @@ Fast Performance
 </h3>
 
 <p>
-Lightweight websites designed to load quickly
+Lightweight pages designed to load quickly
 and feel smooth.
 </p>
 
 </div>
-
 
 <div class="service animate-reveal">
 
@@ -1352,12 +1556,11 @@ Custom Content
 </h3>
 
 <p>
-Your real business information, photos, services
-and branding.
+Your actual business information, images, branding
+and story — not generic placeholder content.
 </p>
 
 </div>
-
 
 <div class="service animate-reveal">
 
@@ -1368,8 +1571,8 @@ Future Updates
 </h3>
 
 <p>
-Need changes later? Your website can grow with
-your business.
+Need changes later? Your website can evolve
+as your business grows.
 </p>
 
 </div>
@@ -1380,6 +1583,113 @@ your business.
 
 </section>
 
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+<div class="container about-grid">
+
+<div class="about-card animate-reveal">
+
+<div class="about-mark">
+LUNA.
+</div>
+
+<h3>
+Built by Satyam.
+</h3>
+
+<p>
+Independent web developer focused on creating
+clean, modern websites for real businesses.
+</p>
+
+<a
+href="https://github.com/sattuu62"
+class="project-link"
+target="_blank"
+rel="noopener"
+
+>
+
+View GitHub → </a>
+
+</div>
+
+<div class="about-content animate-reveal">
+
+<div class="label">
+Why Luna
+</div>
+
+<h2 class="section-title">
+Simple websites.
+Serious presentation.
+</h2>
+
+<p>
+A website doesn't need to be complicated to make a
+business look professional. Luna focuses on strong
+design, clear information, responsive layouts and
+a smooth customer experience.
+</p>
+
+<p>
+Every project is customized around the business —
+its services, branding, images, audience and goals.
+</p>
+
+<div class="about-points">
+
+<div class="about-point">
+
+<strong>01 — Personal</strong>
+
+<span>
+Direct communication and custom work.
+</span>
+
+</div>
+
+<div class="about-point">
+
+<strong>02 — Practical</strong>
+
+<span>
+Focused on what customers actually need.
+</span>
+
+</div>
+
+<div class="about-point">
+
+<strong>03 — Responsive</strong>
+
+<span>
+Designed for modern mobile-first browsing.
+</span>
+
+</div>
+
+<div class="about-point">
+
+<strong>04 — Flexible</strong>
+
+<span>
+Built so the website can grow with you.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- =====================================================
      PROCESS
@@ -1392,7 +1702,7 @@ your business.
 <div class="animate-reveal">
 
 <div class="label">
-Our process
+The process
 </div>
 
 <h2 class="section-title">
@@ -1407,7 +1717,6 @@ idea to launch.
 
 </div>
 
-
 <div>
 
 <div class="process-item animate-reveal">
@@ -1419,7 +1728,7 @@ idea to launch.
 <div>
 
 <h3>
-Tell us about your business
+Tell me about your business
 </h3>
 
 <p>
@@ -1431,7 +1740,6 @@ contact details and goals.
 
 </div>
 
-
 <div class="process-item animate-reveal">
 
 <div class="process-number">
@@ -1441,18 +1749,17 @@ contact details and goals.
 <div>
 
 <h3>
-We customize your website
+I customize the website
 </h3>
 
 <p>
-We adapt the design, content, colours and
-images around your brand.
+The design, content, images and visual direction
+are adapted around your brand.
 </p>
 
 </div>
 
 </div>
-
 
 <div class="process-item animate-reveal">
 
@@ -1467,14 +1774,13 @@ Review and refine
 </h3>
 
 <p>
-You review the website and request changes
-before launch.
+You review the website and request reasonable
+changes before launch.
 </p>
 
 </div>
 
 </div>
-
 
 <div class="process-item animate-reveal">
 
@@ -1489,7 +1795,7 @@ Launch
 </h3>
 
 <p>
-Your new website is ready to share with
+Your finished website is ready to share with
 your customers.
 </p>
 
@@ -1503,6 +1809,65 @@ your customers.
 
 </section>
 
+<!-- =====================================================
+     OFFER
+===================================================== -->
+
+<section>
+
+<div class="container offer">
+
+<div class="animate-reveal">
+
+<div class="label">
+A website for your business
+</div>
+
+<h2 class="section-title">
+Ready when you are.
+</h2>
+
+<p class="section-copy" style="margin-left:auto;margin-right:auto;">
+If you already have a business and need a better
+online presence, Luna can be customized around you.
+</p>
+
+</div>
+
+<div class="offer-box animate-reveal">
+
+<h3>
+Your brand. Your story. Your website.
+</h3>
+
+<p>
+Start with a conversation about what you need.
+There is no complicated process.
+</p>
+
+<div class="offer-list">
+
+<span>Custom Design</span> <span>Responsive</span> <span>Fast</span> <span>Mobile-first</span> <span>Business-focused</span>
+
+</div>
+
+<div class="buttons">
+
+<a
+href="mailto:satyamm28kr74@gmail.com?subject=Luna%20Website%20Enquiry"
+class="btn primary"
+
+>
+
+Get in Touch → </a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- =====================================================
      CTA
@@ -1522,8 +1887,8 @@ customers remember.
 </h2>
 
 <p>
-Tell us what your business does and we'll show you
-what it could look like online.
+Tell me what your business does and what you want
+your website to achieve.
 </p>
 
 <div class="buttons">
@@ -1531,16 +1896,18 @@ what it could look like online.
 <a
 href="mailto:satyamm28kr74@gmail.com?subject=Luna%20Website%20Enquiry"
 class="btn primary"
+
 >
-Start a Project →
-</a>
+
+Start a Project → </a>
 
 <a
 href="mailto:satyamm28kr74@gmail.com"
 class="btn secondary"
+
 >
-satyamm28kr74@gmail.com
-</a>
+
+[satyamm28kr74@gmail.com](mailto:satyamm28kr74@gmail.com) </a>
 
 </div>
 
@@ -1549,7 +1916,6 @@ satyamm28kr74@gmail.com
 </section>
 
 </main>
-
 
 <!-- =====================================================
      FOOTER
@@ -1566,21 +1932,25 @@ LUNA<span>.</span>
 </div>
 
 <div class="footer-copy">
-Premium websites for ambitious businesses.
+Modern websites for ambitious businesses.
 </div>
 
 </div>
-
 
 <div class="footer-links">
 
-<a href="#work">Work</a>
-<a href="#services">Services</a>
-<a href="#process">Process</a>
-<a href="#contact">Contact</a>
+<a href="#work">Work</a> <a href="#services">Services</a> <a href="#about">About</a> <a href="#process">Process</a> <a href="#contact">Contact</a>
+
+<a
+href="https://github.com/sattuu62"
+target="_blank"
+rel="noopener"
+
+>
+
+GitHub </a>
 
 </div>
-
 
 <div class="footer-copy">
 © <span id="year"></span> Luna.
@@ -1590,15 +1960,13 @@ Premium websites for ambitious businesses.
 
 </footer>
 
-
 <script>
 
 /* =====================================================
    NAVBAR
 ===================================================== */
 
-const navbar =
-document.getElementById("navbar");
+const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", function(){
 
@@ -1621,26 +1989,49 @@ document.getElementById("menuButton");
 const navLinks =
 document.getElementById("navLinks");
 
+function closeMenu(){
+
+    navLinks.classList.remove("open");
+
+    menuButton.textContent = "☰";
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    document.body.classList.remove("menu-open");
+}
+
+
 menuButton.addEventListener("click", function(){
 
-    navLinks.classList.toggle("open");
+    const isOpen =
+        navLinks.classList.toggle("open");
 
     menuButton.textContent =
-        navLinks.classList.contains("open")
-        ? "×"
-        : "☰";
+        isOpen ? "×" : "☰";
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+    document.body.classList.toggle(
+        "menu-open",
+        isOpen
+    );
 
 });
 
 
-document.querySelectorAll(".nav-links a")
+document
+.querySelectorAll(".nav-links a")
 .forEach(function(link){
 
     link.addEventListener("click", function(){
 
-        navLinks.classList.remove("open");
-
-        menuButton.textContent = "☰";
+        closeMenu();
 
     });
 
@@ -1651,33 +2042,52 @@ document.querySelectorAll(".nav-links a")
    SCROLL REVEAL
 ===================================================== */
 
-const revealObserver =
-new IntersectionObserver(function(entries, observer){
+const revealElements =
+document.querySelectorAll(".animate-reveal");
 
-    entries.forEach(function(entry){
 
-        if(entry.isIntersecting){
+if("IntersectionObserver" in window){
 
-            entry.target.classList.add("show");
+    const revealObserver =
+        new IntersectionObserver(
+            function(entries, observer){
 
-            observer.unobserve(entry.target);
+                entries.forEach(function(entry){
 
-        }
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:.10
+            }
+        );
+
+
+    revealElements.forEach(function(element){
+
+        revealObserver.observe(element);
 
     });
 
-},{
-    threshold:.12
-});
+}else{
 
+    revealElements.forEach(function(element){
 
-document
-.querySelectorAll(".animate-reveal")
-.forEach(function(element){
+        element.classList.add("show");
 
-    revealObserver.observe(element);
+    });
 
-});
+}
 
 
 /* =====================================================
@@ -1689,7 +2099,7 @@ new Date().getFullYear();
 
 
 /* =====================================================
-   VIDEO
+   BACKGROUND VIDEO
 ===================================================== */
 
 const backgroundVideo =
@@ -1698,33 +2108,39 @@ document.querySelector(".background-video");
 
 if(backgroundVideo){
 
-    backgroundVideo.addEventListener("error", function(){
+    backgroundVideo.addEventListener(
+        "error",
+        function(){
 
-        backgroundVideo.style.display = "none";
-
-    });
-
-
-    window.addEventListener("load", function(){
-
-        const playPromise =
-            backgroundVideo.play();
-
-        if(playPromise !== undefined){
-
-            playPromise.catch(function(){
-
-                /*
-                 Video autoplay can be blocked by
-                 some browsers. The website itself
-                 continues working normally.
-                */
-
-            });
+            backgroundVideo.style.display = "none";
 
         }
+    );
 
-    });
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            const playPromise =
+                backgroundVideo.play();
+
+            if(playPromise !== undefined){
+
+                playPromise.catch(function(){
+
+                    /*
+                    Some browsers may block autoplay.
+                    The rest of the website continues
+                    working normally.
+                    */
+
+                });
+
+            }
+
+        }
+    );
 
 }
 
@@ -1732,4 +2148,3 @@ if(backgroundVideo){
 
 </body>
 </html>
-```
