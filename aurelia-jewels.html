@@ -1,0 +1,2300 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURELIA — Fine Jewelry</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --cream:#f5f0e7;
+    --cream2:#eee6d8;
+    --paper:#faf7f1;
+    --gold:#b89455;
+    --gold-light:#d8bd83;
+    --gold-dark:#806333;
+    --brown:#40372c;
+    --text:#29241f;
+    --muted:#81796d;
+    --white:#fffdf8;
+    --line:rgba(76,61,42,.15);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--cream);
+    color:var(--text);
+    font-family:Manrope,sans-serif;
+    overflow-x:hidden;
+}
+
+body.loaded{
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+/* =================================
+   GRAIN
+================================= */
+
+.grain{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    pointer-events:none;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* =================================
+   LOADER
+================================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:var(--cream);
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity 1s ease,visibility 1s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-content{
+    text-align:center;
+}
+
+.loader-brand{
+    font-family:"Cormorant Garamond",serif;
+    font-size:80px;
+    font-weight:400;
+    letter-spacing:.18em;
+    margin-left:.18em;
+    color:var(--brown);
+}
+
+.loader-sub{
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.35em;
+    color:var(--gold-dark);
+    margin-top:10px;
+}
+
+.loader-line{
+    width:180px;
+    height:1px;
+    background:rgba(100,80,50,.15);
+    margin:28px auto 0;
+    overflow:hidden;
+}
+
+.loader-fill{
+    width:0;
+    height:100%;
+    background:var(--gold);
+    animation:loading 1.8s ease forwards;
+}
+
+@keyframes loading{
+    to{width:100%}
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:100;
+    height:88px;
+    padding:0 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(
+        to bottom,
+        rgba(245,240,231,.95),
+        rgba(245,240,231,0)
+    );
+}
+
+.logo{
+    font-family:"Cormorant Garamond",serif;
+    font-size:30px;
+    letter-spacing:.16em;
+}
+
+.nav-center{
+    display:flex;
+    gap:40px;
+}
+
+.nav-center a{
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#62594d;
+    position:relative;
+}
+
+.nav-center a:after{
+    content:"";
+    position:absolute;
+    bottom:-8px;
+    left:0;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:.4s;
+}
+
+.nav-center a:hover:after{
+    width:100%;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-circle{
+    width:35px;
+    height:35px;
+    border:1px solid var(--line);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(224,201,158,.42),
+            transparent 28%
+        ),
+        linear-gradient(
+            110deg,
+            #f7f3eb,
+            #eee6d7
+        );
+}
+
+.hero-orb{
+    position:absolute;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+    right:-150px;
+    top:50%;
+    transform:translateY(-50%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8),
+            rgba(220,193,143,.2) 45%,
+            transparent 70%
+        );
+    filter:blur(2px);
+    animation:orbFloat 8s ease-in-out infinite;
+}
+
+@keyframes orbFloat{
+    0%,100%{transform:translateY(-50%) scale(1)}
+    50%{transform:translateY(-52%) scale(1.05)}
+}
+
+.hero-content{
+    width:min(1250px,90vw);
+    margin:auto;
+    position:relative;
+    z-index:5;
+    padding-top:80px;
+}
+
+.hero-eyebrow{
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:.3em;
+    color:var(--gold-dark);
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.hero-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(80px,12vw,175px);
+    font-weight:400;
+    line-height:.72;
+    letter-spacing:-.045em;
+    max-width:800px;
+}
+
+.hero-title span{
+    display:block;
+    padding-left:9vw;
+    font-style:italic;
+    color:var(--gold);
+}
+
+.hero-description{
+    margin-top:55px;
+    margin-left:52%;
+    width:350px;
+    color:#776e61;
+    font-size:12px;
+    line-height:2;
+}
+
+.hero-button{
+    display:inline-flex;
+    align-items:center;
+    gap:22px;
+    margin-top:28px;
+    padding:17px 25px;
+    border:1px solid var(--gold);
+    color:var(--brown);
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    transition:.45s;
+}
+
+.hero-button:hover{
+    background:var(--gold);
+    color:white;
+}
+
+.hero-button span{
+    font-size:15px;
+    transition:.4s;
+}
+
+.hero-button:hover span{
+    transform:translateX(6px);
+}
+
+.hero-scroll{
+    position:absolute;
+    bottom:35px;
+    left:5vw;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.2em;
+    color:#887d6d;
+}
+
+.scroll-line{
+    width:50px;
+    height:1px;
+    background:var(--gold);
+}
+
+/* =================================
+   FLOATING GOLD SHAPES
+================================= */
+
+.floating{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.float-one{
+    width:10px;
+    height:10px;
+    background:var(--gold);
+    right:28%;
+    top:22%;
+    box-shadow:0 0 30px rgba(184,148,85,.6);
+    animation:floatOne 5s ease-in-out infinite;
+}
+
+.float-two{
+    width:5px;
+    height:5px;
+    right:17%;
+    bottom:25%;
+    background:white;
+    box-shadow:0 0 20px white;
+    animation:floatTwo 6s ease-in-out infinite;
+}
+
+.float-three{
+    width:7px;
+    height:7px;
+    right:40%;
+    top:17%;
+    background:var(--gold-light);
+    animation:floatThree 7s ease-in-out infinite;
+}
+
+@keyframes floatOne{
+    0%,100%{transform:translate(0,0)}
+    50%{transform:translate(20px,-35px)}
+}
+
+@keyframes floatTwo{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-50px)}
+}
+
+@keyframes floatThree{
+    0%,100%{transform:translate(0)}
+    50%{transform:translate(-30px,30px)}
+}
+
+/* =================================
+   SECTION COMMON
+================================= */
+
+.section{
+    padding:170px 5vw;
+}
+
+.eyebrow{
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.25em;
+    color:var(--gold-dark);
+    text-transform:uppercase;
+}
+
+.section-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(60px,8vw,115px);
+    font-weight:400;
+    line-height:.82;
+}
+
+.section-title em{
+    color:var(--gold);
+}
+
+/* =================================
+   PHILOSOPHY
+================================= */
+
+.philosophy{
+    background:var(--paper);
+}
+
+.philosophy-grid{
+    width:min(1250px,90vw);
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:100px;
+}
+
+.philosophy-copy{
+    max-width:620px;
+    margin-left:auto;
+}
+
+.philosophy-copy p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:2;
+}
+
+.philosophy-copy p+p{
+    margin-top:25px;
+}
+
+.big-word{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(50px,7vw,100px);
+    line-height:.8;
+    color:var(--brown);
+}
+
+/* =================================
+   COLLECTION
+================================= */
+
+.collection{
+    background:#f0e8da;
+}
+
+.collection-header{
+    width:min(1250px,90vw);
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:75px;
+}
+
+.collection-grid{
+    width:min(1250px,90vw);
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:25px;
+}
+
+.jewel-card{
+    position:relative;
+    background:#e7dece;
+    overflow:hidden;
+}
+
+.jewel-card:nth-child(1){
+    grid-column:span 7;
+}
+
+.jewel-card:nth-child(2){
+    grid-column:span 5;
+    margin-top:100px;
+}
+
+.jewel-card:nth-child(3){
+    grid-column:span 5;
+    margin-top:50px;
+}
+
+.jewel-card:nth-child(4){
+    grid-column:span 7;
+}
+
+.jewel-image{
+    height:620px;
+    overflow:hidden;
+    position:relative;
+}
+
+.jewel-card:nth-child(2) .jewel-image,
+.jewel-card:nth-child(3) .jewel-image{
+    height:500px;
+}
+
+.jewel-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:
+        transform 1.2s cubic-bezier(.16,1,.3,1),
+        filter 1s ease;
+    filter:saturate(.85);
+}
+
+.jewel-card:hover img{
+    transform:scale(1.08);
+    filter:saturate(1);
+}
+
+.jewel-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(30,24,17,.55),
+            transparent 55%
+        );
+    opacity:.65;
+}
+
+.jewel-number{
+    position:absolute;
+    top:25px;
+    left:25px;
+    z-index:2;
+    color:white;
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.2em;
+}
+
+.jewel-info{
+    padding:22px 2px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.jewel-name{
+    font-family:"Cormorant Garamond",serif;
+    font-size:29px;
+}
+
+.jewel-type{
+    font-family:"DM Mono",monospace;
+    color:#877d6e;
+    font-size:7px;
+    letter-spacing:.15em;
+    margin-top:5px;
+    text-transform:uppercase;
+}
+
+.jewel-price{
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    color:var(--gold-dark);
+}
+
+/* =================================
+   GOLD DIVIDER
+================================= */
+
+.gold-divider{
+    width:100%;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+}
+
+/* =================================
+   EXPERIENCE
+================================= */
+
+.experience{
+    background:var(--paper);
+}
+
+.experience-grid{
+    width:min(1250px,90vw);
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:750px;
+    align-items:center;
+}
+
+.experience-image{
+    height:700px;
+    overflow:hidden;
+}
+
+.experience-image img{
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.05);
+    transition:transform 1.5s cubic-bezier(.16,1,.3,1);
+}
+
+.experience-image.visible img{
+    transform:scale(1);
+}
+
+.experience-copy{
+    padding:80px;
+}
+
+.experience-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(60px,7vw,105px);
+    line-height:.82;
+    margin:25px 0 35px;
+}
+
+.experience-title em{
+    color:var(--gold);
+}
+
+.experience-copy p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:2;
+    max-width:420px;
+}
+
+.details{
+    margin-top:45px;
+    border-top:1px solid var(--line);
+}
+
+.detail{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.detail span:last-child{
+    color:var(--gold-dark);
+}
+
+/* =================================
+   STATEMENT
+================================= */
+
+.statement{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(
+            circle at center,
+            #eadabd,
+            #d9c49e
+        );
+    overflow:hidden;
+}
+
+.statement:before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border:1px solid rgba(128,99,51,.2);
+    border-radius:50%;
+    animation:rotateRing 25s linear infinite;
+}
+
+.statement:after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    border:1px solid rgba(128,99,51,.15);
+    border-radius:50%;
+    animation:rotateRing 18s linear infinite reverse;
+}
+
+@keyframes rotateRing{
+    to{transform:rotate(360deg)}
+}
+
+.statement-content{
+    position:relative;
+    z-index:2;
+}
+
+.statement-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(70px,11vw,165px);
+    line-height:.75;
+    color:var(--brown);
+}
+
+.statement-title em{
+    display:block;
+    color:var(--white);
+    text-shadow:0 3px 30px rgba(100,70,30,.15);
+}
+
+.statement-small{
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.3em;
+    color:var(--gold-dark);
+    margin-bottom:25px;
+}
+
+/* =================================
+   CRAFT
+================================= */
+
+.craft{
+    background:var(--cream);
+}
+
+.craft-inner{
+    width:min(1250px,90vw);
+    margin:auto;
+}
+
+.craft-header{
+    max-width:750px;
+}
+
+.craft-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(65px,9vw,125px);
+    line-height:.78;
+    margin:25px 0;
+}
+
+.craft-title em{
+    color:var(--gold);
+}
+
+.craft-description{
+    max-width:500px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:2;
+}
+
+.craft-grid{
+    margin-top:100px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+}
+
+.craft-card{
+    background:var(--cream);
+    min-height:350px;
+    padding:45px;
+    transition:.5s;
+}
+
+.craft-card:hover{
+    background:var(--paper);
+}
+
+.craft-icon{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold);
+    font-size:35px;
+}
+
+.craft-card h3{
+    font-family:"Cormorant Garamond",serif;
+    font-size:31px;
+    font-weight:500;
+    margin:65px 0 20px;
+}
+
+.craft-card p{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.9;
+}
+
+/* =================================
+   EDITORIAL IMAGE
+================================= */
+
+.editorial{
+    padding:0 5vw 170px;
+    background:var(--cream);
+}
+
+.editorial-image{
+    width:min(1250px,90vw);
+    height:75vh;
+    min-height:550px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+}
+
+.editorial-image img{
+    height:115%;
+    object-fit:cover;
+    filter:saturate(.8);
+}
+
+.editorial-text{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:rgba(40,30,18,.15);
+}
+
+.editorial-text h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(65px,10vw,150px);
+    color:white;
+    line-height:.75;
+    font-weight:400;
+    text-shadow:0 5px 40px rgba(0,0,0,.2);
+}
+
+.editorial-text em{
+    display:block;
+    color:#ead3a3;
+}
+
+/* =================================
+   TESTIMONIAL
+================================= */
+
+.testimonial{
+    background:var(--paper);
+    padding:170px 5vw;
+    text-align:center;
+}
+
+.quote{
+    width:min(900px,90vw);
+    margin:auto;
+}
+
+.quote-mark{
+    font-family:"Cormorant Garamond",serif;
+    font-size:100px;
+    color:var(--gold);
+    line-height:.4;
+}
+
+.quote-text{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(38px,5vw,70px);
+    line-height:1;
+    margin:35px 0;
+}
+
+.quote-author{
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.25em;
+    color:var(--muted);
+    text-transform:uppercase;
+}
+
+/* =================================
+   FINAL CTA
+================================= */
+
+.final{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,255,255,.9),
+            transparent 30%
+        ),
+        var(--cream2);
+}
+
+.final-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(75px,12vw,175px);
+    line-height:.72;
+    font-weight:400;
+}
+
+.final-title span{
+    display:block;
+    color:var(--gold);
+    font-style:italic;
+}
+
+.final-copy{
+    max-width:430px;
+    margin:45px auto 30px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+}
+
+.final-button{
+    display:inline-flex;
+    padding:18px 30px;
+    border:1px solid var(--gold);
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    transition:.45s;
+}
+
+.final-button:hover{
+    background:var(--gold);
+    color:white;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer{
+    background:#ded2be;
+    border-top:1px solid var(--line);
+    padding:40px 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#706658;
+    font-family:"DM Mono",monospace;
+    font-size:7px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+.footer-logo{
+    font-family:"Cormorant Garamond",serif;
+    font-size:24px;
+    color:var(--brown);
+    letter-spacing:.15em;
+}
+
+/* =================================
+   REVEALS
+================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(45px);
+    transition:
+        opacity 1s cubic-bezier(.16,1,.3,1),
+        transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:900px){
+
+    nav{
+        height:75px;
+        padding:0 6vw;
+    }
+
+    .nav-center{
+        display:none;
+    }
+
+    .logo{
+        font-size:25px;
+    }
+
+    .hero{
+        min-height:850px;
+    }
+
+    .hero-content{
+        width:88vw;
+    }
+
+    .hero-title{
+        font-size:22vw;
+    }
+
+    .hero-title span{
+        padding-left:8vw;
+    }
+
+    .hero-description{
+        margin-left:0;
+        margin-top:50px;
+        width:min(100%,360px);
+    }
+
+    .hero-orb{
+        width:450px;
+        height:450px;
+        right:-200px;
+        top:52%;
+        opacity:.6;
+    }
+
+    .section{
+        padding:120px 6vw;
+    }
+
+    .philosophy-grid{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+    .collection-header{
+        width:88vw;
+        display:block;
+    }
+
+    .collection-header .eyebrow{
+        margin-bottom:20px;
+    }
+
+    .collection-grid{
+        width:88vw;
+        grid-template-columns:1fr;
+    }
+
+    .jewel-card,
+    .jewel-card:nth-child(1),
+    .jewel-card:nth-child(2),
+    .jewel-card:nth-child(3),
+    .jewel-card:nth-child(4){
+        grid-column:auto;
+        margin:0;
+    }
+
+    .jewel-image,
+    .jewel-card:nth-child(2) .jewel-image,
+    .jewel-card:nth-child(3) .jewel-image{
+        height:480px;
+    }
+
+    .experience-grid{
+        grid-template-columns:1fr;
+    }
+
+    .experience-image{
+        height:500px;
+    }
+
+    .experience-copy{
+        padding:80px 0;
+    }
+
+    .statement{
+        min-height:650px;
+    }
+
+    .statement:before{
+        width:400px;
+        height:400px;
+    }
+
+    .statement:after{
+        width:270px;
+        height:270px;
+    }
+
+    .craft-grid{
+        grid-template-columns:1fr;
+    }
+
+    .editorial{
+        padding:0 6vw 120px;
+    }
+
+    .editorial-image{
+        width:88vw;
+        height:65vh;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+}
+
+@media(max-width:500px){
+
+    .hero{
+        min-height:780px;
+    }
+
+    .hero-title{
+        font-size:24vw;
+    }
+
+    .hero-description{
+        font-size:11px;
+    }
+
+    .jewel-image,
+    .jewel-card:nth-child(2) .jewel-image,
+    .jewel-card:nth-child(3) .jewel-image{
+        height:400px;
+    }
+
+    .experience-image{
+        height:420px;
+    }
+
+    .editorial-image{
+        min-height:450px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *:before,
+    *:after{
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="grain"></div>
+
+
+<!-- =============================
+     LOADER
+============================= -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-content">
+
+        <div class="loader-brand">
+            AURELIA
+        </div>
+
+        <div class="loader-sub">
+            FINE JEWELRY
+        </div>
+
+        <div class="loader-line">
+            <div class="loader-fill"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =============================
+     NAV
+============================= -->
+
+<nav>
+
+    <a href="#" class="logo">
+        AURELIA
+    </a>
+
+    <div class="nav-center">
+
+        <a href="#collection">
+            Collection
+        </a>
+
+        <a href="#story">
+            Story
+        </a>
+
+        <a href="#craft">
+            Craft
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+    <div class="nav-right">
+
+        <div class="nav-circle">
+            ♡
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- =============================
+     HERO
+============================= -->
+
+<section class="hero">
+
+    <div class="hero-orb"></div>
+
+    <div class="floating float-one"></div>
+    <div class="floating float-two"></div>
+    <div class="floating float-three"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-eyebrow reveal">
+            AURELIA FINE JEWELRY / 2026
+        </div>
+
+        <h1 class="hero-title reveal">
+
+            Made to
+
+            <span>
+                mesmerize.
+            </span>
+
+        </h1>
+
+
+        <div class="hero-description reveal">
+
+            Timeless jewelry, reimagined for
+            the woman who makes every moment
+            unforgettable.
+
+            <br><br>
+
+            Discover pieces created with
+            luminous stones, sculptural forms
+            and quiet elegance.
+
+            <br>
+
+            <a href="#collection" class="hero-button">
+                Discover Collection
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-scroll">
+
+        <div class="scroll-line"></div>
+
+        SCROLL TO EXPLORE
+
+    </div>
+
+</section>
+
+
+<!-- =============================
+     PHILOSOPHY
+============================= -->
+
+<section class="section philosophy" id="story">
+
+    <div class="philosophy-grid">
+
+        <div>
+
+            <div class="eyebrow reveal">
+                01 / OUR PHILOSOPHY
+            </div>
+
+            <div class="big-word reveal">
+
+                Beauty
+
+                <br>
+
+                beyond
+
+                <br>
+
+                <span style="color:#b89455;">
+                    time.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="philosophy-copy reveal">
+
+            <p>
+
+                Aurelia was born from a simple belief:
+                jewelry should not simply complete
+                an outfit.
+
+                It should become a memory.
+
+            </p>
+
+            <p>
+
+                Our collections balance the
+                brilliance of precious stones with
+                modern, sculptural silhouettes —
+                creating pieces that feel both
+                contemporary and eternal.
+
+            </p>
+
+            <p>
+
+                <strong>
+                    Designed slowly.
+                    Made beautifully.
+                    Worn forever.
+                </strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="gold-divider"></div>
+
+
+<!-- =============================
+     COLLECTION
+============================= -->
+
+<section class="section collection" id="collection">
+
+    <div class="collection-header">
+
+        <div>
+
+            <div class="eyebrow">
+                02 / THE COLLECTION
+            </div>
+
+            <h2 class="section-title">
+                Pieces with
+                <em>presence.</em>
+            </h2>
+
+        </div>
+
+        <div class="eyebrow">
+            04 SIGNATURE PIECES
+        </div>
+
+    </div>
+
+
+    <div class="collection-grid">
+
+
+        <!-- RING -->
+
+        <article class="jewel-card reveal">
+
+            <div class="jewel-image">
+
+                <div class="jewel-number">
+                    001
+                </div>
+
+                <img
+                    src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1500&q=90"
+                    alt="Diamond ring"
+                >
+
+                <div class="jewel-overlay"></div>
+
+            </div>
+
+            <div class="jewel-info">
+
+                <div>
+
+                    <div class="jewel-name">
+                        Élan Solitaire
+                    </div>
+
+                    <div class="jewel-type">
+                        Diamond / 18K Gold
+                    </div>
+
+                </div>
+
+                <div class="jewel-price">
+                    ₹48,000
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- NECKLACE -->
+
+        <article class="jewel-card reveal">
+
+            <div class="jewel-image">
+
+                <div class="jewel-number">
+                    002
+                </div>
+
+                <img
+                    src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=90"
+                    alt="Luxury gold necklace"
+                >
+
+                <div class="jewel-overlay"></div>
+
+            </div>
+
+            <div class="jewel-info">
+
+                <div>
+
+                    <div class="jewel-name">
+                        Solis
+                    </div>
+
+                    <div class="jewel-type">
+                        Gold Necklace
+                    </div>
+
+                </div>
+
+                <div class="jewel-price">
+                    ₹62,000
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- EARRINGS -->
+
+        <article class="jewel-card reveal">
+
+            <div class="jewel-image">
+
+                <div class="jewel-number">
+                    003
+                </div>
+
+                <img
+                    src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=90"
+                    alt="Gold earrings"
+                >
+
+                <div class="jewel-overlay"></div>
+
+            </div>
+
+            <div class="jewel-info">
+
+                <div>
+
+                    <div class="jewel-name">
+                        Lumière
+                    </div>
+
+                    <div class="jewel-type">
+                        Sculptural Earrings
+                    </div>
+
+                </div>
+
+                <div class="jewel-price">
+                    ₹38,000
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- BRACELET -->
+
+        <article class="jewel-card reveal">
+
+            <div class="jewel-image">
+
+                <div class="jewel-number">
+                    004
+                </div>
+
+                <img
+                    src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1500&q=90"
+                    alt="Luxury jewelry collection"
+                >
+
+                <div class="jewel-overlay"></div>
+
+            </div>
+
+            <div class="jewel-info">
+
+                <div>
+
+                    <div class="jewel-name">
+                        Aurelia Cuff
+                    </div>
+
+                    <div class="jewel-type">
+                        18K Gold / Bespoke
+                    </div>
+
+                </div>
+
+                <div class="jewel-price">
+                    ₹71,000
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =============================
+     EXPERIENCE
+============================= -->
+
+<section class="section experience">
+
+    <div class="experience-grid">
+
+        <div class="experience-image reveal">
+
+            <img
+                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1500&q=90"
+                alt="Fine jewelry"
+            >
+
+        </div>
+
+
+        <div class="experience-copy">
+
+            <div class="eyebrow reveal">
+                03 / THE AURELIA STANDARD
+            </div>
+
+            <h2 class="experience-title reveal">
+
+                The art of
+
+                <em>
+                    brilliance.
+                </em>
+
+            </h2>
+
+            <p class="reveal">
+
+                From the first sketch to the final
+                polish, every Aurelia piece is
+                considered from every angle.
+
+            </p>
+
+
+            <div class="details reveal">
+
+                <div class="detail">
+
+                    <span>
+                        Gold
+                    </span>
+
+                    <span>
+                        18K / 22K
+                    </span>
+
+                </div>
+
+                <div class="detail">
+
+                    <span>
+                        Stones
+                    </span>
+
+                    <span>
+                        Carefully Selected
+                    </span>
+
+                </div>
+
+                <div class="detail">
+
+                    <span>
+                        Finish
+                    </span>
+
+                    <span>
+                        Hand Polished
+                    </span>
+
+                </div>
+
+                <div class="detail">
+
+                    <span>
+                        Service
+                    </span>
+
+                    <span>
+                        Lifetime Care
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================
+     STATEMENT
+============================= -->
+
+<section class="statement">
+
+    <div class="statement-content">
+
+        <div class="statement-small">
+            JEWELRY IS A MEMORY YOU CAN WEAR
+        </div>
+
+        <h2 class="statement-title">
+
+            Wear
+
+            <em>
+                wonder.
+            </em>
+
+        </h2>
+
+    </div>
+
+</section>
+
+
+<!-- =============================
+     CRAFT
+============================= -->
+
+<section class="section craft" id="craft">
+
+    <div class="craft-inner">
+
+        <div class="craft-header">
+
+            <div class="eyebrow reveal">
+                04 / CRAFTSMANSHIP
+            </div>
+
+            <h2 class="craft-title reveal">
+
+                Beautiful
+
+                <br>
+
+                by
+
+                <em>
+                    intention.
+                </em>
+
+            </h2>
+
+            <p class="craft-description reveal">
+
+                Luxury lives in the details.
+                Every Aurelia piece is shaped,
+                polished and finished with
+                extraordinary attention.
+
+            </p>
+
+        </div>
+
+
+        <div class="craft-grid">
+
+
+            <div class="craft-card reveal">
+
+                <div class="craft-icon">
+                    I
+                </div>
+
+                <h3>
+                    Sculptural Design
+                </h3>
+
+                <p>
+                    Clean curves, balanced proportions
+                    and silhouettes designed to catch
+                    light beautifully.
+                </p>
+
+            </div>
+
+
+            <div class="craft-card reveal">
+
+                <div class="craft-icon">
+                    II
+                </div>
+
+                <h3>
+                    Precious Materials
+                </h3>
+
+                <p>
+                    Gold and luminous stones selected
+                    to create depth, warmth and
+                    unmistakable brilliance.
+                </p>
+
+            </div>
+
+
+            <div class="craft-card reveal">
+
+                <div class="craft-icon">
+                    III
+                </div>
+
+                <h3>
+                    Made For You
+                </h3>
+
+                <p>
+                    Bespoke consultations allow every
+                    detail to be tailored around your
+                    story and your style.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================
+     EDITORIAL
+============================= -->
+
+<section class="editorial">
+
+    <div class="editorial-image reveal">
+
+        <img
+            src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1800&q=90"
+            alt="Aurelia jewelry editorial"
+        >
+
+        <div class="editorial-text">
+
+            <h2>
+
+                Your story.
+
+                <em>
+                    Your Aurelia.
+                </em>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================
+     TESTIMONIAL
+============================= -->
+
+<section class="testimonial">
+
+    <div class="quote reveal">
+
+        <div class="quote-mark">
+            “
+        </div>
+
+        <div class="quote-text">
+
+            Some things are beautiful
+            because they sparkle.
+
+            Others are beautiful
+            because they mean something.
+
+        </div>
+
+        <div class="quote-author">
+
+            AURELIA JOURNAL / 01
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================
+     FINAL CTA
+============================= -->
+
+<section class="final" id="contact">
+
+    <div>
+
+        <div class="eyebrow reveal">
+            05 / PRIVATE APPOINTMENTS
+        </div>
+
+        <h2 class="final-title reveal">
+
+            Find your
+
+            <span>
+                forever piece.
+            </span>
+
+        </h2>
+
+        <p class="final-copy reveal">
+
+            Explore our collection or speak with
+            an Aurelia specialist about creating
+            something uniquely yours.
+
+        </p>
+
+        <a
+            href="mailto:hello@aureliajewels.com?subject=Private%20Aurelia%20Appointment"
+            class="final-button reveal"
+        >
+            Book A Private Appointment →
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =============================
+     FOOTER
+============================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        AURELIA
+    </div>
+
+    <div>
+        FINE JEWELRY / 2026
+    </div>
+
+    <div>
+        NEW DELHI · INDIA
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =================================
+   LOADER
+================================= */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document
+            .getElementById("loader")
+            .classList.add("hide");
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach((el,index)=>{
+
+                setTimeout(()=>{
+
+                    el.classList.add("visible");
+
+                },80 + index * 55);
+
+            });
+
+    },1700);
+
+});
+
+
+/* =================================
+   REVEAL OBSERVER
+================================= */
+
+const observer =
+new IntersectionObserver(
+
+    entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el=>{
+
+        observer.observe(el);
+
+    });
+
+
+/* =================================
+   IMAGE PARALLAX
+================================= */
+
+const editorialImage =
+document.querySelector(".editorial-image img");
+
+window.addEventListener("scroll",()=>{
+
+    if(!editorialImage) return;
+
+    const rect =
+        editorialImage
+        .parentElement
+        .getBoundingClientRect();
+
+    const progress =
+        (window.innerHeight - rect.top) /
+        (window.innerHeight + rect.height);
+
+    const movement =
+        (progress - .5) * 80;
+
+    editorialImage.style.transform =
+        `translateY(${movement}px)`;
+
+});
+
+
+/* =================================
+   CARD 3D TILT
+================================= */
+
+document
+    .querySelectorAll(".jewel-card")
+    .forEach(card=>{
+
+        card.addEventListener("mousemove",e=>{
+
+            if(window.innerWidth < 900)
+                return;
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+            const y =
+                e.clientY - rect.top;
+
+            const rotateY =
+                (x / rect.width - .5) * 3;
+
+            const rotateX =
+                (y / rect.height - .5) * -3;
+
+            card.style.transform =
+                `
+                perspective(1200px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                translateY(-3px)
+                `;
+
+        });
+
+
+        card.addEventListener("mouseleave",()=>{
+
+            card.style.transform =
+                "perspective(1200px) rotateX(0deg) rotateY(0deg)";
+
+        });
+
+    });
+
+
+/* =================================
+   GOLD PARTICLE EFFECT
+================================= */
+
+const hero =
+document.querySelector(".hero");
+
+const particleCount = 25;
+
+for(let i=0;i<particleCount;i++){
+
+    const particle =
+        document.createElement("span");
+
+    particle.style.position="absolute";
+
+    particle.style.width =
+        `${Math.random()*3+1}px`;
+
+    particle.style.height =
+        particle.style.width;
+
+    particle.style.borderRadius="50%";
+
+    particle.style.background =
+        Math.random()>.5
+        ? "#c9a968"
+        : "#ffffff";
+
+    particle.style.opacity =
+        Math.random()*.6+.15;
+
+    particle.style.left =
+        Math.random()*100+"%";
+
+    particle.style.top =
+        Math.random()*100+"%";
+
+    particle.style.pointerEvents="none";
+
+    particle.style.filter=
+        "blur(.3px)";
+
+    const duration =
+        5 + Math.random()*8;
+
+    const delay =
+        Math.random()*5;
+
+    particle.animate(
+
+        [
+            {
+                transform:"translate3d(0,0,0)",
+                opacity:.15
+            },
+
+            {
+                transform:
+                    `translate3d(
+                        ${Math.random()*80-40}px,
+                        ${Math.random()*-100-20}px,
+                        0
+                    )`,
+                opacity:.8
+            },
+
+            {
+                transform:
+                    `translate3d(
+                        ${Math.random()*100-50}px,
+                        30px,
+                        0
+                    )`,
+                opacity:0
+            }
+
+        ],
+
+        {
+            duration:duration*1000,
+            delay:delay*1000,
+            iterations:Infinity,
+            easing:"ease-in-out"
+        }
+
+    );
+
+    hero.appendChild(particle);
+
+}
+
+
+/* =================================
+   SMOOTH ANCHORS
+================================= */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(anchor=>{
+
+        anchor.addEventListener("click",e=>{
+
+            const target =
+                document.querySelector(
+                    anchor.getAttribute("href")
+                );
+
+            if(!target) return;
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        });
+
+    });
+
+
+/* =================================
+   MOUSE LIGHT
+================================= */
+
+let mouseX=0;
+let mouseY=0;
+
+window.addEventListener("mousemove",e=>{
+
+    mouseX =
+        e.clientX /
+        window.innerWidth;
+
+    mouseY =
+        e.clientY /
+        window.innerHeight;
+
+    const orb =
+        document.querySelector(".hero-orb");
+
+    if(orb){
+
+        const moveX =
+            (mouseX-.5)*40;
+
+        const moveY =
+            (mouseY-.5)*30;
+
+        orb.style.marginLeft =
+            moveX+"px";
+
+        orb.style.marginTop =
+            moveY+"px";
+
+    }
+
+});
+
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+if(
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+){
+
+    document
+        .querySelectorAll("*")
+        .forEach(el=>{
+
+            el.style.animationDuration="0.01ms";
+
+        });
+
+}
+
+</script>
+
+</body>
+</html>
+```

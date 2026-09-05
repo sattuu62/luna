@@ -382,9 +382,6 @@ nav{
 
 }
 
-
-/* ambient glow */
-
 .hero-glow{
   position:absolute;
   inset:10%;
@@ -417,9 +414,6 @@ nav{
     transform:translateZ(-100px) scale(1.08);
   }
 }
-
-
-/* giant gold orbit */
 
 .hero-orbit{
   position:absolute;
@@ -540,9 +534,6 @@ nav{
 
 }
 
-
-/* browser top */
-
 .browser-top{
   height:42px;
 
@@ -590,9 +581,6 @@ nav{
   color:rgba(255,255,255,.32);
 }
 
-
-/* browser content */
-
 .browser-body{
   position:relative;
   height:calc(100% - 42px);
@@ -614,9 +602,6 @@ nav{
       #11100d
     );
 }
-
-
-/* website mini nav */
 
 .fake-nav{
   display:flex;
@@ -647,9 +632,6 @@ nav{
 
   color:rgba(255,255,255,.5);
 }
-
-
-/* mini hero */
 
 .fake-main{
   position:relative;
@@ -725,9 +707,6 @@ nav{
 
   letter-spacing:.08em;
 }
-
-
-/* abstract visual */
 
 .fake-visual{
   position:absolute;
@@ -826,9 +805,6 @@ nav{
   }
 }
 
-
-/* floating glass cards */
-
 .float-card{
   position:absolute;
 
@@ -918,9 +894,6 @@ nav{
 
 }
 
-
-/* scanning light */
-
 .scan-line{
   position:absolute;
 
@@ -970,9 +943,6 @@ nav{
 
 }
 
-
-/* hero labels */
-
 .hero-label{
   position:absolute;
 
@@ -1000,9 +970,6 @@ nav{
   top:20%;
   transform:rotate(90deg);
 }
-
-
-/* entrance */
 
 .hero-stage{
   opacity:0;
@@ -1040,9 +1007,6 @@ nav{
   }
 
 }
-
-
-/* hero scroll */
 
 .scroll-indicator{
   position:absolute;
@@ -1469,7 +1433,7 @@ nav{
 }
 
 
-/* custom */
+/* CUSTOM */
 
 .custom-project{
   display:grid;
@@ -1813,7 +1777,6 @@ footer{
 
   0%{transform:scale(0)}
   100%{transform:scale(2)}
-
 }
 
 .demo-loader{
@@ -2649,10 +2612,6 @@ footer{
   </div>
 
 
-  <!-- ===================================================
-       3D WEBSITE
-  ==================================================== -->
-
   <div
     class="hero-stage"
     id="heroStage"
@@ -3251,12 +3210,63 @@ footer{
     </article>
 
 
-    <!-- YOUR BUSINESS -->
+    <!-- =================================================
+         AURELIA JEWELS — NEW
+    ================================================= -->
 
     <article class="project-card reveal">
 
       <div class="project-number">
         005
+      </div>
+
+      <div class="project-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1500&q=90"
+          alt="Aurelia Jewels website"
+        >
+
+        <div class="project-overlay"></div>
+
+      </div>
+
+      <div class="project-content">
+
+        <div class="category">
+          Luxury / Jewelry
+        </div>
+
+        <h3>
+          Aurelia Jewels
+        </h3>
+
+        <p>
+          An elegant luxury jewelry experience designed
+          around craftsmanship, timeless detail and
+          premium editorial presentation.
+        </p>
+
+        <button
+          class="project-link demo-trigger"
+          data-demo="aurelia-jewels.html"
+          data-name="Aurelia Jewels"
+          type="button"
+        >
+          View Jewelry Demo →
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <!-- YOUR BUSINESS -->
+
+    <article class="project-card reveal">
+
+      <div class="project-number">
+        006
       </div>
 
       <div class="project-image custom-project">
@@ -3444,7 +3454,7 @@ footer{
 
       <div class="faq-item reveal">
 
-        <button class="faq-question">
+        <button class="faq-question" type="button">
 
           <span>
             How long does a website take?
@@ -3472,7 +3482,7 @@ footer{
 
       <div class="faq-item reveal">
 
-        <button class="faq-question">
+        <button class="faq-question" type="button">
 
           <span>
             Can you build a website for my specific business?
@@ -3499,7 +3509,7 @@ footer{
 
       <div class="faq-item reveal">
 
-        <button class="faq-question">
+        <button class="faq-question" type="button">
 
           <span>
             Will the website work on phones?
@@ -3526,7 +3536,7 @@ footer{
 
       <div class="faq-item reveal">
 
-        <button class="faq-question">
+        <button class="faq-question" type="button">
 
           <span>
             Can you add animations or 3D?
@@ -3553,7 +3563,7 @@ footer{
 
       <div class="faq-item reveal">
 
-        <button class="faq-question">
+        <button class="faq-question" type="button">
 
           <span>
             Can you redesign my existing website?
@@ -3580,7 +3590,7 @@ footer{
 
       <div class="faq-item reveal">
 
-        <button class="faq-question">
+        <button class="faq-question" type="button">
 
           <span>
             How do I start?
@@ -3648,7 +3658,7 @@ footer{
     </a>
 
     <div class="email-display">
-      satyamm28kr74@gmail.com
+      satyamm28@gmail.com
     </div>
 
     <div class="built">
@@ -3734,8 +3744,6 @@ renderer.outputColorSpace =
   THREE.SRGBColorSpace;
 
 
-/* lighting */
-
 scene.add(
   new THREE.AmbientLight(
     0xffffff,
@@ -3758,8 +3766,6 @@ light.position.set(
 
 scene.add(light);
 
-
-/* central object */
 
 const coreGroup =
   new THREE.Group();
@@ -3786,8 +3792,6 @@ const core =
 coreGroup.add(core);
 
 
-/* wire */
-
 const wire =
   new THREE.Mesh(
     new THREE.IcosahedronGeometry(
@@ -3806,8 +3810,6 @@ coreGroup.add(
   wire
 );
 
-
-/* rings */
 
 const rings = [];
 
@@ -3854,8 +3856,6 @@ for(
 
 }
 
-
-/* particles */
 
 const count =
   innerWidth < 700
@@ -3928,8 +3928,6 @@ scene.add(
 );
 
 
-/* mouse */
-
 let mouseX = 0;
 let mouseY = 0;
 
@@ -3950,8 +3948,6 @@ addEventListener(
 );
 
 
-/* scroll */
-
 let scroll = 0;
 
 addEventListener(
@@ -3971,8 +3967,6 @@ addEventListener(
   {passive:true}
 );
 
-
-/* animate */
 
 const clock =
   new THREE.Clock();
@@ -4066,8 +4060,6 @@ function animate(){
 
 animate();
 
-
-/* resize */
 
 addEventListener(
   "resize",
@@ -4399,7 +4391,7 @@ document
 
 
 /* =========================================================
-   CARD DIVE DEMO SYSTEM
+   CARD DIVE / CINEMATIC DEMO SYSTEM
 ========================================================= */
 
 const overlay =
@@ -4427,7 +4419,7 @@ const status =
     "demoStatus"
   );
 
-const projects =
+const projectsContainer =
   document.getElementById(
     "projects"
   );
@@ -4463,7 +4455,7 @@ function openDemo(button){
     "launching"
   );
 
-  projects.classList.add(
+  projectsContainer.classList.add(
     "demo-launching"
   );
 
@@ -4558,7 +4550,7 @@ function closeDemo(){
         "demo-open"
       );
 
-      projects.classList.remove(
+      projectsContainer.classList.remove(
         "demo-launching"
       );
 
